@@ -45,6 +45,16 @@ export interface PastProject {
   updated_at: string;
 }
 
+export interface Inquiry {
+  id: string;
+  name: string;
+  email: string;
+  message: string;
+  listing_id: string | null;
+  read: boolean;
+  created_at: string;
+}
+
 export interface Employee {
   id: string;
   full_name: string;

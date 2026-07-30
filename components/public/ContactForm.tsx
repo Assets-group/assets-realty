@@ -3,21 +3,21 @@
 import { useState } from "react";
 import type { Locale } from "@/lib/types";
 import type { dictionary } from "@/lib/dictionary";
+import { submitInquiry } from "@/lib/actions/inquiries";
 
 export default function ContactForm({ dict }: { dict: (typeof dictionary)[Locale] }) {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<"idle" | "sending" | "sent" | "error">("idle");
 
-  if (sent) {
-    return <p className="text-ink/70">Thank you — we'll be in touch shortly.</p>;
+  if (status === "sent") {
+    return <p className="text-ink/70">{dict.contact.sent}</p>;
   }
 
   return (
     <form
-      onSubmit={(e) => {
-        e.preventDefault();
-        // NOTE: wire this up to a Supabase table, Server Action, or
-        // an email provider (Resend, etc.) before going live.
-        setSent(true);
+      action={async (formData) => {
+        setStatus("sending");
+        const result = await submitInquiry(formData);
+        setStatus(result?.error ? "error" : "sent");
       }}
       className="space-y-5"
     >
@@ -25,6 +25,7 @@ export default function ContactForm({ dict }: { dict: (typeof dictionary)[Locale
         <label className="mb-1 block text-sm font-medium text-ink/70">{dict.contact.name}</label>
         <input
           required
+          name="name"
           type="text"
           className="w-full border border-line px-4 py-3 focus:border-maroon focus:outline-none"
         />
@@ -33,6 +34,7 @@ export default function ContactForm({ dict }: { dict: (typeof dictionary)[Locale
         <label className="mb-1 block text-sm font-medium text-ink/70">{dict.contact.email}</label>
         <input
           required
+          name="email"
           type="email"
           className="w-full border border-line px-4 py-3 focus:border-maroon focus:outline-none"
         />
@@ -43,13 +45,16 @@ export default function ContactForm({ dict }: { dict: (typeof dictionary)[Locale
         </label>
         <textarea
           required
+          name="message"
           rows={5}
           className="w-full border border-line px-4 py-3 focus:border-maroon focus:outline-none"
         />
       </div>
+      {status === "error" && <p className="text-sm text-red-600">{dict.contact.error}</p>}
       <button
         type="submit"
-        className="bg-ink px-8 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-maroon"
+        disabled={status === "sending"}
+        className="bg-ink px-8 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-maroon disabled:opacity-60"
       >
         {dict.contact.send}
       </button>

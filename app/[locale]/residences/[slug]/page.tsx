@@ -3,6 +3,7 @@ import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale, Listing } from "@/lib/types";
+import ListingInquiryForm from "@/components/public/ListingInquiryForm";
 
 function formatPrice(status: string, price: number) {
   const val = price.toLocaleString("en-US");
@@ -68,6 +69,10 @@ export default async function ListingDetailPage({
         <p className="mt-8 text-3xl font-light text-maroon">
           {formatPrice(l.status, l.price)}
         </p>
+
+        <div className="mt-10 max-w-lg">
+          <ListingInquiryForm dict={dict} listingId={l.id} />
+        </div>
 
         {l.gallery_urls?.length > 0 && (
           <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3">

@@ -42,6 +42,13 @@ export const dictionary = {
       email: "Email",
       message: "Message",
       send: "Send",
+      sent: "Thank you — we'll be in touch shortly.",
+      error: "Something went wrong. Please try again.",
+    },
+    listingInquiry: {
+      title: "Interested in this residence?",
+      message: "Ask about this residence — availability, viewings, or pricing.",
+      send: "Send Inquiry",
     },
     footer: {
       rights: "All rights reserved to Assets Real Estate Investments",
@@ -87,6 +94,13 @@ export const dictionary = {
       email: "البريد الإلكتروني",
       message: "الرسالة",
       send: "إرسال",
+      sent: "شكراً لك — سنتواصل معك قريباً.",
+      error: "حدث خطأ ما. الرجاء المحاولة مرة أخرى.",
+    },
+    listingInquiry: {
+      title: "مهتم بهذه الوحدة؟",
+      message: "استفسر عن هذه الوحدة — التوفر، المعاينة، أو السعر.",
+      send: "إرسال الاستفسار",
     },
     footer: {
       rights: "جميع الحقوق محفوظة لأصول للاستثمارات العقارية",
