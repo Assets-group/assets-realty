@@ -58,6 +58,26 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
           </Link>
         </div>
       </section>
+
+      {/* Location */}
+      <section className="border-t border-line">
+        <div className="max-w-content mx-auto px-8 py-16">
+          <h2 className="mb-1 text-3xl font-light text-ink">{dict.visitUs.title}</h2>
+          <p className="mb-8 text-ink/60">{dict.visitUs.subtitle}</p>
+        </div>
+        <div className="h-[420px] w-full">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d221.94976700425855!2d39.1344587!3d21.5610159!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3dbd76dfc87cd%3A0x8f4d3a4901fccd41!2z2KPYtdmI2YQg2KfZhNin2YLZhNmK2YXZitipINmE2YTYp9iz2KrYq9mF2KfYsdin2Kog2KfZhNi52YLYp9ix2YrYqQ!5e1!3m2!1sen!2ssa!4v1785399947693!5m2!1sen!2ssa"
+            width="100%"
+            height="100%"
+            style={{ border: 0 }}
+            allowFullScreen
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
+            title="Assets Real Estate Investments location"
+          />
+        </div>
+      </section>
     </>
   );
 }

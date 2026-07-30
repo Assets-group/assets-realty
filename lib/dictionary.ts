@@ -55,6 +55,10 @@ export const dictionary = {
       message: "Ask about this residence — availability, viewings, or pricing.",
       send: "Send Inquiry",
     },
+    visitUs: {
+      title: "Visit Us",
+      subtitle: "Jeddah, Saudi Arabia",
+    },
     footer: {
       rights: "All rights reserved to Assets Real Estate Investments",
     },
@@ -111,6 +115,10 @@ export const dictionary = {
       title: "مهتم بهذه الوحدة؟",
       message: "استفسر عن هذه الوحدة — التوفر، المعاينة، أو السعر.",
       send: "إرسال الاستفسار",
+    },
+    visitUs: {
+      title: "زورونا",
+      subtitle: "جدة، المملكة العربية السعودية",
     },
     footer: {
       rights: "جميع الحقوق محفوظة لأصول للاستثمارات العقارية",
