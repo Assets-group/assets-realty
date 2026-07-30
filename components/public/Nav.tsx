@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import type { Locale } from "@/lib/types";
 import type { dictionary } from "@/lib/dictionary";
 
@@ -22,8 +23,8 @@ export default function Nav({
   return (
     <header className="border-b border-line">
       <div className="max-w-content mx-auto flex items-center justify-between px-8 py-6">
-        <Link href={`/${locale}`} className="text-xl font-extrabold tracking-wide text-ink">
-          ASSET<span className="text-maroon">S</span>
+        <Link href={`/${locale}`} className="shrink-0">
+          <Image src="/logo.svg" alt="Assets" width={140} height={34} priority />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => (
