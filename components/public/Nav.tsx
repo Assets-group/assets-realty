@@ -24,7 +24,7 @@ export default function Nav({
     <header className="border-b border-line">
       <div className="max-w-content mx-auto flex items-center justify-between px-8 py-6">
         <Link href={`/${locale}`} className="shrink-0">
-          <Image src="/logo.svg" alt="Assets" width={140} height={34} priority />
+          <Image src="/logo.png" alt="Assets Real Estate Investments" width={180} height={44} priority />
         </Link>
         <nav className="hidden md:flex items-center gap-8">
           {links.map((link) => (
