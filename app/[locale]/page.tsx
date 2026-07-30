@@ -35,6 +35,18 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
         </div>
       </section>
 
+      {/* Trust / Building Value */}
+      <section className="max-w-content mx-auto px-8 py-24">
+        <h2 className="max-w-3xl text-3xl font-light text-ink sm:text-4xl">
+          {dict.trustSection.title}
+        </h2>
+        <div className="mt-8 max-w-2xl space-y-5 text-lg leading-relaxed text-ink/75">
+          <p>{dict.trustSection.paragraph1}</p>
+          <p>{dict.trustSection.paragraph2}</p>
+          <p>{dict.trustSection.paragraph3}</p>
+        </div>
+      </section>
+
       {/* Past projects — editorial gallery */}
       <section className="max-w-content mx-auto px-8 py-24">
         <h2 className="mb-2 text-3xl font-light text-ink">{dict.pastProjects.title}</h2>

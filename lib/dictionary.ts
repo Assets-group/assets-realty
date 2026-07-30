@@ -21,6 +21,15 @@ export const dictionary = {
       title: "More Than 20 Years of Experience",
       body: "We are a real estate investment and consultancy company that prioritizes customer satisfaction. We offer the best services in the industry to help our clients achieve their goals and aspirations. We rely on our extensive experience and professional consultants to provide our clients with expert advice and guidance at all times. We also promote the principles of transparency, mutual trust, credibility, and sustainability to build strong and lasting relationships with our clients.",
     },
+    trustSection: {
+      title: "ASSETS Real Estate Investment: Building Trust, Creating Value",
+      paragraph1:
+        "Since 2005, ASSETS has been a trusted advisor in real estate investments, serving high-net-worth clients with expertise and integrity.",
+      paragraph2:
+        "We believe that customers' satisfaction is the corner stone in building our success, therefore we are like no other in providing the best services in real estate investment and development in view of realizing the customers' objectives and aspirations.",
+      paragraph3:
+        "We depend on our extensive experience and our highly trained professional Sales Advisors, whom will be pleased to provide their advice and guidance to the customers at all time.",
+    },
     residences: {
       title: "Residences in Jeddah, presented like no other.",
       subtitle:
@@ -82,6 +91,15 @@ export const dictionary = {
       eyebrow: "عن أصول",
       title: "أكثر من 20 عامًا من الخبرة",
       body: "نحن شركة استثمار واستشارات عقارية تضع رضا العملاء في مقدمة أولوياتها. نقدم أفضل الخدمات في القطاع لمساعدة عملائنا على تحقيق أهدافهم وتطلعاتهم. نعتمد على خبرتنا الواسعة واستشاريينا المحترفين لتزويد عملائنا بالمشورة والتوجيه بشكل دائم. كما نتبنى مبادئ الشفافية والثقة المتبادلة والمصداقية والاستدامة لبناء علاقات قوية ودائمة مع عملائنا.",
+    },
+    trustSection: {
+      title: "أصول للاستثمارات العقارية: نبني الثقة، نصنع القيمة",
+      paragraph1:
+        "منذ عام 2005، ظلت أصول مستشارًا موثوقًا في مجال الاستثمار العقاري، تخدم عملاء من أصحاب الثروات العالية بخبرة ونزاهة.",
+      paragraph2:
+        "نؤمن بأن رضا العملاء هو حجر الأساس في بناء نجاحنا، لذلك نحن لا مثيل لنا في تقديم أفضل خدمات الاستثمار والتطوير العقاري تحقيقًا لأهداف عملائنا وتطلعاتهم.",
+      paragraph3:
+        "نعتمد على خبرتنا الواسعة ومستشاري المبيعات المحترفين ذوي التدريب العالي، الذين يسعدهم تقديم النصح والتوجيه لعملائنا في كل وقت.",
     },
     residences: {
       title: "وحدات سكنية في جدة، بأسلوب لا مثيل له.",
