@@ -1,0 +1,34 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:ital,wght@0,300;0,400;0,500;0,700;0,800;1,300&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Tajawal", sans-serif;
+  color: #1a1b1f;
+  background: #ffffff;
+}
+
+/* Visible keyboard focus, kept subtle but present */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 2px solid #730f10;
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
