@@ -45,6 +45,31 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
         </div>
       </section>
 
+      {/* Trusted By */}
+      <section className="border-y border-line bg-stone/40 px-8 py-14">
+        <div className="max-w-content mx-auto">
+          <p className="eyebrow mx-auto mb-8 w-fit text-maroon">{dict.trustedBy.eyebrow}</p>
+          <div className="flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-center">
+            {[
+              "Four Seasons Jeddah",
+              "KAUST",
+              "Saudi Aramco",
+              "Lamar Towers",
+              "Al Mada Towers",
+              "Golden Tower",
+              "Thakher Development",
+            ].map((client) => (
+              <span
+                key={client}
+                className="text-sm font-medium uppercase tracking-[0.1em] text-ink/50"
+              >
+                {client}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* Business Profile */}
       <section className="bg-stone/50 px-8 py-28 text-center">
         <div className="max-w-content mx-auto">

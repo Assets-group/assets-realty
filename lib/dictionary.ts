@@ -65,6 +65,9 @@ export const dictionary = {
       message: "Ask about this residence — availability, viewings, or pricing.",
       send: "Send Inquiry",
     },
+    trustedBy: {
+      eyebrow: "Trusted By",
+    },
     currentProjects: {
       eyebrow: "Current Projects",
     },
@@ -138,6 +141,9 @@ export const dictionary = {
       title: "مهتم بهذه الوحدة؟",
       message: "استفسر عن هذه الوحدة — التوفر، المعاينة، أو السعر.",
       send: "إرسال الاستفسار",
+    },
+    trustedBy: {
+      eyebrow: "عملاؤنا وشركاؤنا",
     },
     currentProjects: {
       eyebrow: "المشاريع الحالية",
