@@ -17,11 +17,39 @@ export default function ListingGallery({
 
   if (images.length === 0) return null;
 
+  const showArrows = images.length > 1;
+  const goPrev = () => setSelected((i) => (i === 0 ? images.length - 1 : i - 1));
+  const goNext = () => setSelected((i) => (i === images.length - 1 ? 0 : i + 1));
+
   return (
     <div>
       <div className="max-w-content mx-auto px-8 pt-8">
         <div className="relative aspect-[16/9] w-full overflow-hidden bg-ink/5">
           <Image src={images[selected]} alt={alt} fill className="object-cover" priority />
+          {showArrows && (
+            <>
+              <button
+                type="button"
+                onClick={goPrev}
+                aria-label="Previous photo"
+                className="absolute left-3 top-1/2 -translate-y-1/2 bg-ink/50 p-2 text-white transition-colors hover:bg-ink/80"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
+                  <path d="M15 6l-6 6 6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                onClick={goNext}
+                aria-label="Next photo"
+                className="absolute right-3 top-1/2 -translate-y-1/2 bg-ink/50 p-2 text-white transition-colors hover:bg-ink/80"
+              >
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5">
+                  <path d="M9 6l6 6-6 6" strokeLinecap="round" strokeLinejoin="round" />
+                </svg>
+              </button>
+            </>
+          )}
         </div>
       </div>
 
