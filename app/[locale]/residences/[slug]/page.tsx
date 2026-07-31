@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale, Listing } from "@/lib/types";
 import ListingInquiryForm from "@/components/public/ListingInquiryForm";
+import ListingGallery from "@/components/public/ListingGallery";
 
 function formatPrice(status: string, price: number) {
   const val = price.toLocaleString("en-US");
@@ -66,11 +66,7 @@ export default async function ListingDetailPage({
 
   return (
     <article>
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-ink/5">
-        {l.main_image_url && (
-          <Image src={l.main_image_url} alt={name} fill className="object-cover" priority />
-        )}
-      </div>
+      <ListingGallery mainImageUrl={l.main_image_url} galleryUrls={l.gallery_urls} alt={name} />
 
       <div className="max-w-content mx-auto px-8 py-16">
         <p className="text-xs font-bold uppercase tracking-wider text-maroon">
@@ -105,16 +101,6 @@ export default async function ListingDetailPage({
         <div className="mt-10 max-w-lg">
           <ListingInquiryForm dict={dict} listingId={l.id} />
         </div>
-
-        {l.gallery_urls?.length > 0 && (
-          <div className="mt-16 grid grid-cols-2 gap-4 sm:grid-cols-3">
-            {l.gallery_urls.map((url, i) => (
-              <div key={i} className="relative aspect-square overflow-hidden bg-ink/5">
-                <Image src={url} alt={`${name} photo ${i + 1}`} fill className="object-cover" />
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     </article>
   );
