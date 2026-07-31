@@ -45,6 +45,20 @@ export interface PastProject {
   updated_at: string;
 }
 
+export interface CurrentProject {
+  id: string;
+  name_en: string;
+  name_ar: string;
+  description_en: string;
+  description_ar: string;
+  image_url: string | null;
+  sort_order: number;
+  published: boolean;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface Inquiry {
   id: string;
   name: string;

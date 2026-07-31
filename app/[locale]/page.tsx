@@ -1,8 +1,17 @@
+import { createClient } from "@/lib/supabase/server";
 import { getDictionary } from "@/lib/dictionary";
-import type { Locale } from "@/lib/types";
+import type { CurrentProject, Locale } from "@/lib/types";
+import CurrentProjectsSlideshow from "@/components/public/CurrentProjectsSlideshow";
 
-export default function HomePage({ params }: { params: { locale: Locale } }) {
+export default async function HomePage({ params }: { params: { locale: Locale } }) {
   const dict = getDictionary(params.locale);
+  const supabase = createClient();
+
+  const { data: currentProjects } = await supabase
+    .from("current_projects")
+    .select("*")
+    .eq("published", true)
+    .order("sort_order", { ascending: true });
 
   return (
     <>
@@ -40,16 +49,24 @@ export default function HomePage({ params }: { params: { locale: Locale } }) {
       <section className="bg-stone/50 px-8 py-28 text-center">
         <div className="max-w-content mx-auto">
           <p className="eyebrow mx-auto w-fit text-maroon">{dict.nav.businessProfile}</p>
-          <a
-            href="/assets-business-profile.pdf"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-boutique mt-8 inline-flex"
-          >
+          <a href="/assets-business-profile.pdf" target="_blank" rel="noopener noreferrer" className="btn-boutique mt-8 inline-flex">
             {dict.nav.businessProfile}
           </a>
         </div>
       </section>
+
+      {/* Current Projects */}
+      {currentProjects && currentProjects.length > 0 && (
+        <section className="max-w-content mx-auto px-8 py-28">
+          <p className="eyebrow mx-auto w-fit text-maroon">{dict.currentProjects.eyebrow}</p>
+          <div className="mt-10">
+            <CurrentProjectsSlideshow
+              projects={currentProjects as CurrentProject[]}
+              locale={params.locale}
+            />
+          </div>
+        </section>
+      )}
 
       {/* Location */}
       <section className="border-t border-line bg-ivory">

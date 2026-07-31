@@ -65,6 +65,9 @@ export const dictionary = {
       message: "Ask about this residence — availability, viewings, or pricing.",
       send: "Send Inquiry",
     },
+    currentProjects: {
+      eyebrow: "Current Projects",
+    },
     visitUs: {
       title: "Visit Us",
       subtitle: "Jeddah, Saudi Arabia",
@@ -135,6 +138,9 @@ export const dictionary = {
       title: "مهتم بهذه الوحدة؟",
       message: "استفسر عن هذه الوحدة — التوفر، المعاينة، أو السعر.",
       send: "إرسال الاستفسار",
+    },
+    currentProjects: {
+      eyebrow: "المشاريع الحالية",
     },
     visitUs: {
       title: "زورونا",
