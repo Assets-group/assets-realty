@@ -1,5 +1,15 @@
+import type { Metadata } from "next";
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/types";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: Locale };
+}): Promise<Metadata> {
+  const dict = getDictionary(params.locale);
+  return { title: dict.nav.about, description: dict.about.body };
+}
 
 export default function AboutPage({ params }: { params: { locale: Locale } }) {
   const dict = getDictionary(params.locale);

@@ -1,6 +1,16 @@
+import type { Metadata } from "next";
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/types";
 import ContactForm from "@/components/public/ContactForm";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: Locale };
+}): Promise<Metadata> {
+  const dict = getDictionary(params.locale);
+  return { title: dict.contact.title };
+}
 
 export default function ContactPage({ params }: { params: { locale: Locale } }) {
   const dict = getDictionary(params.locale);

@@ -1,7 +1,17 @@
+import type { Metadata } from "next";
 import { createClient } from "@/lib/supabase/server";
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale, Listing } from "@/lib/types";
 import ResidencesGrid from "@/components/public/ResidencesGrid";
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: Locale };
+}): Promise<Metadata> {
+  const dict = getDictionary(params.locale);
+  return { title: dict.nav.residences, description: dict.residences.subtitle };
+}
 
 export default async function ResidencesPage({ params }: { params: { locale: Locale } }) {
   const dict = getDictionary(params.locale);

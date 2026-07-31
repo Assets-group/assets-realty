@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import { notFound } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
@@ -8,6 +9,37 @@ import ListingInquiryForm from "@/components/public/ListingInquiryForm";
 function formatPrice(status: string, price: number) {
   const val = price.toLocaleString("en-US");
   return status === "For Rent" ? `SAR ${val} / yr` : `SAR ${val}`;
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: { locale: Locale; slug: string };
+}): Promise<Metadata> {
+  const supabase = createClient();
+  const { data: listing } = await supabase
+    .from("listings")
+    .select("*")
+    .eq("slug", params.slug)
+    .eq("published", true)
+    .single();
+
+  if (!listing) return {};
+
+  const l = listing as Listing;
+  const name = params.locale === "en" ? l.name_en : l.name_ar;
+  const area = params.locale === "en" ? l.area_en : l.area_ar;
+  const description = params.locale === "en" ? l.description_en : l.description_ar;
+
+  return {
+    title: name,
+    description: description || `${l.property_type} in ${area} — ${formatPrice(l.status, l.price)}`,
+    openGraph: {
+      title: name,
+      description: description || undefined,
+      images: l.main_image_url ? [{ url: l.main_image_url }] : undefined,
+    },
+  };
 }
 
 export default async function ListingDetailPage({
