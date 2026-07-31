@@ -17,9 +17,7 @@ export default async function ResidencesPage({ params }: { params: { locale: Loc
   return (
     <div>
       <div className="max-w-content mx-auto px-8 pb-8 pt-16">
-        <p className="mb-4 text-xs font-bold uppercase tracking-wider text-maroon">
-          {dict.hero.eyebrow}
-        </p>
+        <p className="eyebrow mb-5 text-maroon">{dict.hero.eyebrow}</p>
         <h1 className="max-w-xl text-4xl font-light text-ink sm:text-5xl">
           {dict.residences.title}
         </h1>

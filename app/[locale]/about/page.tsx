@@ -6,16 +6,24 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
 
   return (
     <div>
-      <div className="flex min-h-[50vh] items-center bg-maroon px-8 text-white">
-        <div className="max-w-content mx-auto">
-          <p className="mb-4 text-xs font-bold uppercase tracking-[0.2em] text-white/70">
-            {dict.about.eyebrow}
-          </p>
-          <h1 className="max-w-2xl text-4xl font-light sm:text-5xl">{dict.about.title}</h1>
+      <section className="relative flex min-h-[55vh] items-center overflow-hidden bg-ink px-8 text-white">
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/50 to-burgundy/60"
+          aria-hidden
+        />
+        <div className="max-w-content relative z-10 mx-auto">
+          <p className="eyebrow text-white/70">{dict.about.eyebrow}</p>
+          <h1 className="mt-5 max-w-2xl text-4xl font-light sm:text-5xl">{dict.about.title}</h1>
         </div>
-      </div>
+      </section>
 
-      <div className="max-w-content mx-auto px-8 py-20">
+      <div className="max-w-content mx-auto grid grid-cols-1 gap-14 px-8 py-24 md:grid-cols-[auto_1fr]">
+        <div className="flex items-start gap-4">
+          <span className="text-6xl font-light leading-none text-maroon">20+</span>
+          <span className="mt-1 max-w-[8rem] text-xs font-semibold uppercase leading-snug tracking-[0.14em] text-ink/50">
+            Years of Experience
+          </span>
+        </div>
         <p className="max-w-2xl text-lg leading-relaxed text-ink/75">{dict.about.body}</p>
       </div>
     </div>
