@@ -71,6 +71,18 @@ export const dictionary = {
     currentProjects: {
       eyebrow: "Current Projects",
     },
+    personalRealEstate: {
+      eyebrow: "Personal Real Estate",
+      title: "The ideal solution for owning or selling real estate",
+      body: "The process of owning or selling your own property can be complex, which is why we offer you a personal real estate sales and marketing management service.",
+      servicesLabel: "Services",
+      services: [
+        "Marketing and Sales Management",
+        "Real Estate Consulting",
+        "Real estate investment management",
+        "Market study and research",
+      ],
+    },
     visitUs: {
       title: "Visit Us",
       subtitle: "Jeddah, Saudi Arabia",
@@ -147,6 +159,18 @@ export const dictionary = {
     },
     currentProjects: {
       eyebrow: "المشاريع الحالية",
+    },
+    personalRealEstate: {
+      eyebrow: "العقارات الشخصية",
+      title: "الحل الأمثل لتملك أو بيع العقارات",
+      body: "قد تكون عملية تملك أو بيع عقارك الخاص معقدة، لذلك نقدم لك خدمة إدارة المبيعات والتسويق العقاري الشخصي.",
+      servicesLabel: "الخدمات",
+      services: [
+        "إدارة التسويق والمبيعات",
+        "الاستشارات العقارية",
+        "إدارة الاستثمار العقاري",
+        "دراسة السوق والأبحاث",
+      ],
     },
     visitUs: {
       title: "زورونا",

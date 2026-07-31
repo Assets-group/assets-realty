@@ -92,6 +92,36 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
           </div>
         </section>
       )}
+
+      {/* Personal Real Estate */}
+      <section className="border-t border-line bg-stone/40 px-8 py-28">
+        <div className="max-w-content mx-auto grid grid-cols-1 gap-14 md:grid-cols-2">
+          <div>
+            <p className="eyebrow text-maroon">{dict.personalRealEstate.eyebrow}</p>
+            <h2 className="mt-5 text-3xl font-light leading-snug text-ink sm:text-4xl">
+              {dict.personalRealEstate.title}
+            </h2>
+            <p className="mt-6 max-w-md text-base leading-relaxed text-ink/70">
+              {dict.personalRealEstate.body}
+            </p>
+          </div>
+          <div>
+            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
+              {dict.personalRealEstate.servicesLabel}
+            </p>
+            <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
+              {dict.personalRealEstate.services.map((service, i) => (
+                <div key={service} className="border-t border-line pt-4">
+                  <span className="text-2xl font-light text-burgundy">
+                    {String(i + 1).padStart(2, "0")}
+                  </span>
+                  <p className="mt-2 text-sm font-medium text-ink">{service}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
     </>
   );
 }
