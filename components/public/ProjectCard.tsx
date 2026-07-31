@@ -24,7 +24,7 @@ export default function ProjectCard({
           />
         )}
       </div>
-      <p className="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-gold">
+      <p className="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-burgundy">
         {location}
         {project.year ? ` — ${project.year}` : ""}
       </p>

@@ -54,10 +54,10 @@ export default function Footer({ dict }: { dict: (typeof dictionary)[Locale] }) 
           height={37}
           className="opacity-90 brightness-0 invert"
         />
-        <div className="h-px w-12 bg-gold" />
+        <div className="h-px w-12 bg-burgundy" />
         <div className="flex items-center gap-5">
           {socials.map((s) => (
-            <a key={s.name} href={s.href} aria-label={s.name} className="text-ivory/60 transition-colors hover:text-gold">
+            <a key={s.name} href={s.href} aria-label={s.name} className="text-ivory/60 transition-colors hover:text-burgundy">
               {s.icon}
             </a>
           ))}

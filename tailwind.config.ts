@@ -8,7 +8,7 @@ const config: Config = {
         ink: "#14141A",
         maroon: "#730F10",
         rose: "#E63A56",
-        gold: "#B08D57",
+        burgundy: "#5C1A2B",
         paper: "#FFFFFF",
         ivory: "#FBFAF7",
         cream: "#F6F5F2",

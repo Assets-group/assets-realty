@@ -34,7 +34,7 @@ export default function Nav({
               className="group relative text-xs font-semibold uppercase tracking-[0.14em] text-ink/70 transition-colors hover:text-ink"
             >
               {link.label}
-              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
+              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-burgundy transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
           <Link

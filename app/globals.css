@@ -36,7 +36,7 @@ select:focus-visible {
   }
   .eyebrow::before {
     content: "";
-    @apply h-px w-9 bg-gold;
+    @apply h-px w-9 bg-burgundy;
   }
 }
 

@@ -17,7 +17,7 @@ export default function CurrentProjectsSlideshow({
     if (projects.length < 2) return;
     const timer = setInterval(() => {
       setIndex((i) => (i + 1) % projects.length);
-    }, 5000);
+    }, 10000);
     return () => clearInterval(timer);
   }, [projects.length]);
 
@@ -28,7 +28,7 @@ export default function CurrentProjectsSlideshow({
   const description = locale === "en" ? project.description_en : project.description_ar;
 
   return (
-    <div className="grid grid-cols-1 overflow-hidden border border-line md:grid-cols-2">
+    <div className="grid grid-cols-1 overflow-hidden border border-line md:min-h-[560px] md:grid-cols-2">
       <div className="relative aspect-[4/3] w-full md:aspect-auto">
         {project.image_url && (
           <Image
@@ -40,9 +40,9 @@ export default function CurrentProjectsSlideshow({
           />
         )}
       </div>
-      <div className="flex flex-col justify-center bg-ivory p-10 sm:p-14">
-        <h3 className="text-2xl font-light text-ink sm:text-3xl">{name}</h3>
-        <p className="mt-4 max-w-md text-sm leading-relaxed text-ink/70">{description}</p>
+      <div className="flex flex-col justify-center bg-ivory p-12 sm:p-16">
+        <h3 className="text-3xl font-light text-ink sm:text-4xl">{name}</h3>
+        <p className="mt-5 max-w-md text-base leading-relaxed text-ink/70">{description}</p>
         {projects.length > 1 && (
           <div className="mt-8 flex gap-2">
             {projects.map((p, i) => (
@@ -51,7 +51,7 @@ export default function CurrentProjectsSlideshow({
                 aria-label={`Show project ${i + 1}`}
                 onClick={() => setIndex(i)}
                 className={`h-1.5 rounded-full transition-all ${
-                  i === index ? "w-8 bg-gold" : "w-1.5 bg-ink/20"
+                  i === index ? "w-8 bg-burgundy" : "w-1.5 bg-ink/20"
                 }`}
               />
             ))}

@@ -36,7 +36,7 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
           <h2 className="max-w-md text-3xl font-light leading-snug text-ink sm:text-4xl">
             {dict.trustSection.title}
           </h2>
-          <div className="hidden bg-gold/40 md:block" aria-hidden />
+          <div className="hidden bg-burgundy/40 md:block" aria-hidden />
           <div className="space-y-6 text-base leading-relaxed text-ink/70">
             <p>{dict.trustSection.paragraph1}</p>
             <p>{dict.trustSection.paragraph2}</p>
@@ -57,7 +57,7 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
 
       {/* Current Projects */}
       {currentProjects && currentProjects.length > 0 && (
-        <section className="max-w-content mx-auto px-8 py-28">
+        <section className="max-w-content mx-auto px-8 py-32">
           <p className="eyebrow mx-auto w-fit text-maroon">{dict.currentProjects.eyebrow}</p>
           <div className="mt-10">
             <CurrentProjectsSlideshow
@@ -67,26 +67,6 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
           </div>
         </section>
       )}
-
-      {/* Location */}
-      <section className="border-t border-line bg-ivory">
-        <div className="max-w-content mx-auto px-8 py-16">
-          <p className="eyebrow text-maroon">{dict.visitUs.title}</p>
-          <h2 className="mt-4 text-3xl font-light text-ink">{dict.visitUs.subtitle}</h2>
-        </div>
-        <div className="max-w-content mx-auto h-[300px] w-full px-8 pb-4">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d221.94976700425855!2d39.1344587!3d21.5610159!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x15c3dbd76dfc87cd%3A0x8f4d3a4901fccd41!2z2KPYtdmI2YQg2KfZhNin2YLZhNmK2YXZitipINmE2YTYp9iz2KrYq9mF2KfYsdin2Kog2KfZhNi52YLYp9ix2YrYqQ!5e1!3m2!1sen!2ssa!4v1785399947693!5m2!1sen!2ssa"
-            width="100%"
-            height="100%"
-            style={{ border: 0, filter: "grayscale(0.3) contrast(1.05)" }}
-            allowFullScreen
-            loading="lazy"
-            referrerPolicy="strict-origin-when-cross-origin"
-            title="Assets Real Estate Investments location"
-          />
-        </div>
-      </section>
     </>
   );
 }

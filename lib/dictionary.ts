@@ -8,7 +8,7 @@ export const dictionary = {
       residences: "Properties",
       pastProjects: "Past Projects",
       businessProfile: "Business Profile",
-      contact: "Contact us",
+      contact: "Connect with Us",
       langToggle: "العربية",
     },
     hero: {
@@ -52,7 +52,7 @@ export const dictionary = {
       subtitle: "A record of what we've delivered.",
     },
     contact: {
-      title: "Get in touch",
+      title: "Connect with Us",
       name: "Name",
       email: "Email",
       message: "Message",
