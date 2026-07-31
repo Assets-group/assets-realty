@@ -26,7 +26,7 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
         />
         <div className="relative z-10 max-w-2xl">
           <p className="eyebrow mx-auto w-fit text-ivory/70">{dict.hero.eyebrow}</p>
-          <h1 className="font-display mt-6 text-6xl font-light italic text-ivory sm:text-7xl">
+          <h1 className="mt-6 text-6xl font-light text-ivory sm:text-7xl">
             {dict.hero.title}
           </h1>
           <p className="mx-auto mt-7 max-w-lg text-lg font-light text-ivory/85">
@@ -38,7 +38,7 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
       {/* Trust / Building Value */}
       <section className="max-w-content mx-auto px-8 py-28">
         <div className="grid grid-cols-1 gap-14 md:grid-cols-[1fr_1px_1.1fr]">
-          <h2 className="font-display max-w-md text-3xl font-light leading-snug text-ink sm:text-4xl">
+          <h2 className="max-w-md text-3xl font-light leading-snug text-ink sm:text-4xl">
             {dict.trustSection.title}
           </h2>
           <div className="hidden bg-gold/40 md:block" aria-hidden />
@@ -54,7 +54,7 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
       <section className="bg-stone/50 px-8 py-28">
         <div className="max-w-content mx-auto">
           <p className="eyebrow text-maroon">{dict.pastProjects.title}</p>
-          <h2 className="font-display mt-4 max-w-lg text-3xl font-light text-ink sm:text-4xl">
+          <h2 className="mt-4 max-w-lg text-3xl font-light text-ink sm:text-4xl">
             {dict.pastProjects.subtitle}
           </h2>
           <div className="mt-16 grid grid-cols-1 gap-16 sm:grid-cols-2">
@@ -79,7 +79,7 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
       <section className="border-t border-line bg-ivory">
         <div className="max-w-content mx-auto px-8 py-16">
           <p className="eyebrow text-maroon">{dict.visitUs.title}</p>
-          <h2 className="font-display mt-4 text-3xl font-light text-ink">
+          <h2 className="mt-4 text-3xl font-light text-ink">
             {dict.visitUs.subtitle}
           </h2>
         </div>

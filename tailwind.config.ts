@@ -17,8 +17,6 @@ const config: Config = {
       },
       fontFamily: {
         sans: ["Tajawal", "sans-serif"],
-        display: ["Fraunces", "serif"],
-        displayAr: ["El Messiri", "serif"],
       },
       maxWidth: {
         content: "1240px",

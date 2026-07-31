@@ -11,7 +11,7 @@ export const dictionary = {
       langToggle: "العربية",
     },
     hero: {
-      eyebrow: "Jeddah · Real Estate Investments",
+      eyebrow: "Real Estate Investments",
       title: "Like No Other",
       subtitle:
         "We provide the best services in real estate investment and development to achieve our client's goals and aspirations.",
@@ -82,7 +82,7 @@ export const dictionary = {
       langToggle: "English",
     },
     hero: {
-      eyebrow: "جدة · استثمارات عقارية",
+      eyebrow: "استثمارات عقارية",
       title: "لامثيل لنا",
       subtitle:
         "نقدم أفضل الخدمات في الاستثمار والتطوير العقاري لتحقيق أهداف عملائنا وتطلعاتهم.",
