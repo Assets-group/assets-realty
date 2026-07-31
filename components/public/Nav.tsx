@@ -21,11 +21,12 @@ export default function Nav({
 
   return (
     <header className="border-b border-line bg-ivory">
-      <div className="max-w-content mx-auto flex items-center justify-between px-8 py-6">
+      <div className="max-w-content mx-auto grid grid-cols-[auto_1fr_auto] items-center gap-6 px-8 py-6">
         <Link href={`/${locale}`} className="shrink-0">
           <Image src="/logo.png" alt="Assets Real Estate Investments" width={180} height={44} priority />
         </Link>
-        <nav className="hidden md:flex items-center gap-9">
+
+        <nav className="hidden items-center justify-center gap-9 md:flex">
           {links.map((link) => (
             <Link
               key={link.href}
@@ -43,6 +44,10 @@ export default function Nav({
             {dict.nav.langToggle}
           </Link>
         </nav>
+
+        <a href="tel:920000398" dir="ltr" className="hidden shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-ink/70 transition-colors hover:text-maroon md:block">
+          920 000 398
+        </a>
       </div>
     </header>
   );
