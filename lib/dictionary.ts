@@ -5,8 +5,9 @@ export const dictionary = {
     nav: {
       home: "Home",
       about: "About us",
-      residences: "Residences",
+      residences: "Properties",
       pastProjects: "Past Projects",
+      businessProfile: "Business Profile",
       contact: "Contact us",
       langToggle: "العربية",
     },
@@ -76,8 +77,9 @@ export const dictionary = {
     nav: {
       home: "الرئيسية",
       about: "عن أصول",
-      residences: "الوحدات السكنية",
+      residences: "العقارات",
       pastProjects: "مشاريعنا السابقة",
+      businessProfile: "الملف التعريفي",
       contact: "تواصل معنا",
       langToggle: "English",
     },

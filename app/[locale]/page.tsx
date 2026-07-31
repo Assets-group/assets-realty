@@ -1,20 +1,8 @@
-import Link from "next/link";
-import Image from "next/image";
-import { createClient } from "@/lib/supabase/server";
 import { getDictionary } from "@/lib/dictionary";
-import type { Locale, PastProject } from "@/lib/types";
-import ProjectCard from "@/components/public/ProjectCard";
+import type { Locale } from "@/lib/types";
 
-export default async function HomePage({ params }: { params: { locale: Locale } }) {
+export default function HomePage({ params }: { params: { locale: Locale } }) {
   const dict = getDictionary(params.locale);
-  const supabase = createClient();
-
-  const { data: projects } = await supabase
-    .from("past_projects")
-    .select("*")
-    .eq("published", true)
-    .order("year", { ascending: false })
-    .limit(4);
 
   return (
     <>
@@ -26,9 +14,7 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
         />
         <div className="relative z-10 max-w-2xl">
           <p className="eyebrow mx-auto w-fit text-ivory/70">{dict.hero.eyebrow}</p>
-          <h1 className="mt-6 text-6xl font-light text-ivory sm:text-7xl">
-            {dict.hero.title}
-          </h1>
+          <h1 className="mt-6 text-6xl font-light text-ivory sm:text-7xl">{dict.hero.title}</h1>
           <p className="mx-auto mt-7 max-w-lg text-lg font-light text-ivory/85">
             {dict.hero.subtitle}
           </p>
@@ -50,28 +36,18 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
         </div>
       </section>
 
-      {/* Past projects — editorial gallery */}
-      <section className="bg-stone/50 px-8 py-28">
+      {/* Business Profile */}
+      <section className="bg-stone/50 px-8 py-28 text-center">
         <div className="max-w-content mx-auto">
-          <p className="eyebrow text-maroon">{dict.pastProjects.title}</p>
-          <h2 className="mt-4 max-w-lg text-3xl font-light text-ink sm:text-4xl">
-            {dict.pastProjects.subtitle}
-          </h2>
-          <div className="mt-16 grid grid-cols-1 gap-16 sm:grid-cols-2">
-            {(projects as PastProject[] | null)?.map((project) => (
-              <ProjectCard key={project.id} project={project} locale={params.locale} />
-            ))}
-          </div>
-          {!projects?.length && (
-            <p className="mt-4 text-ink/50">
-              No past projects yet — add some from the admin dashboard.
-            </p>
-          )}
-          <div className="mt-16 text-center">
-            <Link href={`/${params.locale}/residences`} className="btn-boutique">
-              {dict.nav.residences}
-            </Link>
-          </div>
+          <p className="eyebrow mx-auto w-fit text-maroon">{dict.nav.businessProfile}</p>
+          <a
+            href="/assets-business-profile.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-boutique mt-8 inline-flex"
+          >
+            {dict.nav.businessProfile}
+          </a>
         </div>
       </section>
 
@@ -79,9 +55,7 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
       <section className="border-t border-line bg-ivory">
         <div className="max-w-content mx-auto px-8 py-16">
           <p className="eyebrow text-maroon">{dict.visitUs.title}</p>
-          <h2 className="mt-4 text-3xl font-light text-ink">
-            {dict.visitUs.subtitle}
-          </h2>
+          <h2 className="mt-4 text-3xl font-light text-ink">{dict.visitUs.subtitle}</h2>
         </div>
         <div className="max-w-content mx-auto h-[300px] w-full px-8 pb-4">
           <iframe
