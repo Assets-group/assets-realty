@@ -19,8 +19,10 @@ export default function ListingGallery({
 
   return (
     <div>
-      <div className="relative aspect-[16/9] w-full overflow-hidden bg-ink/5">
-        <Image src={images[selected]} alt={alt} fill className="object-cover" priority />
+      <div className="max-w-content mx-auto px-8 pt-8">
+        <div className="relative aspect-[16/9] w-full overflow-hidden bg-ink/5">
+          <Image src={images[selected]} alt={alt} fill className="object-cover" priority />
+        </div>
       </div>
 
       {images.length > 1 && (
