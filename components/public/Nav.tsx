@@ -1,3 +1,6 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "@/lib/types";
@@ -10,6 +13,7 @@ export default function Nav({
   locale: Locale;
   dict: (typeof dictionary)[Locale];
 }) {
+  const [open, setOpen] = useState(false);
   const otherLocale = locale === "en" ? "ar" : "en";
 
   const links = [
@@ -48,7 +52,52 @@ export default function Nav({
         <a href="tel:920000398" dir="ltr" className="hidden shrink-0 text-xs font-semibold uppercase tracking-[0.14em] text-ink/70 transition-colors hover:text-maroon md:block">
           920 000 398
         </a>
+
+        <button
+          type="button"
+          onClick={() => setOpen((v) => !v)}
+          aria-label="Toggle menu"
+          aria-expanded={open}
+          className="justify-self-end p-1 text-ink md:hidden"
+        >
+          {open ? (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6">
+              <path d="M6 6l12 12M18 6L6 18" strokeLinecap="round" />
+            </svg>
+          ) : (
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" className="h-6 w-6">
+              <path d="M4 7h16M4 12h16M4 17h16" strokeLinecap="round" />
+            </svg>
+          )}
+        </button>
       </div>
+
+      {open && (
+        <nav className="border-t border-line px-8 py-6 md:hidden">
+          <div className="flex flex-col gap-5">
+            {links.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="text-sm font-semibold uppercase tracking-[0.14em] text-ink/80"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href={`/${otherLocale}`}
+              onClick={() => setOpen(false)}
+              className="text-sm font-bold uppercase tracking-[0.14em] text-maroon"
+            >
+              {dict.nav.langToggle}
+            </Link>
+            <a href="tel:920000398" dir="ltr" className="text-sm font-semibold uppercase tracking-[0.14em] text-ink/80">
+              920 000 398
+            </a>
+          </div>
+        </nav>
+      )}
     </header>
   );
 }
