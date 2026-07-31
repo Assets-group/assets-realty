@@ -21,24 +21,25 @@ export default function Nav({
   ];
 
   return (
-    <header className="border-b border-line">
+    <header className="border-b border-line bg-ivory">
       <div className="max-w-content mx-auto flex items-center justify-between px-8 py-6">
         <Link href={`/${locale}`} className="shrink-0">
           <Image src="/logo.png" alt="Assets Real Estate Investments" width={180} height={44} priority />
         </Link>
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-9">
           {links.map((link) => (
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-ink/80 hover:text-maroon transition-colors"
+              className="group relative text-xs font-semibold uppercase tracking-[0.14em] text-ink/70 transition-colors hover:text-ink"
             >
               {link.label}
+              <span className="absolute -bottom-1.5 left-0 h-px w-0 bg-gold transition-all duration-300 group-hover:w-full" />
             </Link>
           ))}
           <Link
             href={`/${otherLocale}`}
-            className="text-sm font-bold text-ink hover:text-maroon transition-colors"
+            className="border-l border-line pl-9 text-xs font-bold uppercase tracking-[0.14em] text-maroon transition-colors hover:text-ink"
           >
             {dict.nav.langToggle}
           </Link>

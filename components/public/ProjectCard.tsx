@@ -24,11 +24,11 @@ export default function ProjectCard({
           />
         )}
       </div>
-      <p className="mt-6 text-xs font-bold uppercase tracking-wider text-maroon">
+      <p className="mt-6 text-xs font-semibold uppercase tracking-[0.16em] text-gold">
         {location}
         {project.year ? ` — ${project.year}` : ""}
       </p>
-      <h3 className="mt-2 text-2xl font-light text-ink">{name}</h3>
+      <h3 className="font-display mt-2 text-2xl font-light text-ink">{name}</h3>
       <p className="mt-2 max-w-md text-sm leading-relaxed text-ink/60">{description}</p>
     </article>
   );

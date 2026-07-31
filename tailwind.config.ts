@@ -5,15 +5,20 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ink: "#1A1B1F",
+        ink: "#14141A",
         maroon: "#730F10",
         rose: "#E63A56",
+        gold: "#B08D57",
         paper: "#FFFFFF",
+        ivory: "#FBFAF7",
         cream: "#F6F5F2",
-        line: "rgba(26,27,31,0.12)",
+        stone: "#EDE7DC",
+        line: "rgba(20,20,26,0.10)",
       },
       fontFamily: {
         sans: ["Tajawal", "sans-serif"],
+        display: ["Fraunces", "serif"],
+        displayAr: ["El Messiri", "serif"],
       },
       maxWidth: {
         content: "1240px",
