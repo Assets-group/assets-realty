@@ -88,6 +88,11 @@ export const dictionary = {
       title: "Visit Us",
       subtitle: "Jeddah, Saudi Arabia",
     },
+    notFound: {
+      title: "Page Not Found",
+      message: "The page you're looking for doesn't exist or may have moved.",
+      backHome: "Back to Home",
+    },
     footer: {
       rights: "All rights reserved to Assets Real Estate Investments",
     },
@@ -177,6 +182,11 @@ export const dictionary = {
     visitUs: {
       title: "زورونا",
       subtitle: "جدة، المملكة العربية السعودية",
+    },
+    notFound: {
+      title: "الصفحة غير موجودة",
+      message: "الصفحة التي تبحث عنها غير موجودة أو ربما تم نقلها.",
+      backHome: "العودة للرئيسية",
     },
     footer: {
       rights: "جميع الحقوق محفوظة لأصول للاستثمارات العقارية",
