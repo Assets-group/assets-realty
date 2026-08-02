@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { createClient } from "@/lib/supabase/server";
 import { getDictionary } from "@/lib/dictionary";
 import type { CurrentProject, Locale } from "@/lib/types";
@@ -17,6 +18,13 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
     <>
       {/* Hero */}
       <section className="relative flex min-h-[92vh] items-center justify-center overflow-hidden bg-ink px-6 text-center">
+        <Image
+          src="/hero-bg.png"
+          alt=""
+          fill
+          priority
+          className="object-cover"
+        />
         <div
           className="absolute inset-0 bg-gradient-to-b from-ink/75 via-ink/40 to-maroon/60"
           aria-hidden
