@@ -6,9 +6,9 @@ export default async function AdminHome() {
   const supabase = createClient();
   const employee = await getCurrentEmployee();
 
-  const [{ count: listingsCount }, { count: projectsCount }] = await Promise.all([
+  const [{ count: listingsCount }, { count: blogCount }] = await Promise.all([
     supabase.from("listings").select("*", { count: "exact", head: true }),
-    supabase.from("past_projects").select("*", { count: "exact", head: true }),
+    supabase.from("blog_posts").select("*", { count: "exact", head: true }),
   ]);
 
   return (
@@ -25,12 +25,12 @@ export default async function AdminHome() {
           <p className="mt-2 text-sm font-bold uppercase tracking-wider text-maroon">Listings</p>
         </Link>
         <Link
-          href="/admin/past-projects"
+          href="/admin/blog"
           className="border border-line bg-white p-8 transition-colors hover:border-maroon"
         >
-          <p className="text-4xl font-light text-ink">{projectsCount ?? 0}</p>
+          <p className="text-4xl font-light text-ink">{blogCount ?? 0}</p>
           <p className="mt-2 text-sm font-bold uppercase tracking-wider text-maroon">
-            Past Projects
+            Blog Posts
           </p>
         </Link>
       </div>

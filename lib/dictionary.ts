@@ -6,7 +6,6 @@ export const dictionary = {
       home: "Home",
       about: "About us",
       residences: "Properties",
-      pastProjects: "Past Projects",
       businessProfile: "Company Profile",
       falLicense: "FAL License",
       blog: "Blog",
@@ -48,10 +47,6 @@ export const dictionary = {
       baths: "Baths",
       sqm: "sqm",
       empty: "No residences match these filters — try widening your search.",
-    },
-    pastProjects: {
-      title: "Previous Projects",
-      subtitle: "A record of what we've delivered.",
     },
     contact: {
       title: "Connect with Us",
@@ -110,7 +105,6 @@ export const dictionary = {
       home: "الرئيسية",
       about: "عن أصول",
       residences: "العقارات",
-      pastProjects: "مشاريعنا السابقة",
       businessProfile: "الملف التعريفي",
       falLicense: "رخصة فال",
       blog: "المدونة",
@@ -151,10 +145,6 @@ export const dictionary = {
       baths: "حمامات",
       sqm: "متر مربع",
       empty: "لا توجد وحدات مطابقة لهذا البحث — جرّب توسيع نطاق البحث.",
-    },
-    pastProjects: {
-      title: "مشاريعنا السابقة",
-      subtitle: "سجل بما أنجزناه.",
     },
     contact: {
       title: "تواصل معنا",

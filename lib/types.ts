@@ -28,23 +28,6 @@ export interface Listing {
   updated_at: string;
 }
 
-export interface PastProject {
-  id: string;
-  slug: string;
-  name_en: string;
-  name_ar: string;
-  location_en: string;
-  location_ar: string;
-  year: string | null;
-  description_en: string;
-  description_ar: string;
-  photo_url: string | null;
-  published: boolean;
-  created_by: string | null;
-  created_at: string;
-  updated_at: string;
-}
-
 export interface BlogPost {
   id: string;
   slug: string;
