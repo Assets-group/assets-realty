@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Image from "next/image";
 import type { Locale } from "@/lib/types";
 import type { dictionary } from "@/lib/dictionary";
@@ -43,7 +44,13 @@ const socials = [
   },
 ];
 
-export default function Footer({ dict }: { dict: (typeof dictionary)[Locale] }) {
+export default function Footer({
+  dict,
+  locale,
+}: {
+  dict: (typeof dictionary)[Locale];
+  locale: Locale;
+}) {
   return (
     <footer className="border-t border-line bg-ink text-ivory">
       <div className="max-w-content mx-auto flex flex-col items-center gap-7 px-8 py-16 text-center">
@@ -55,6 +62,12 @@ export default function Footer({ dict }: { dict: (typeof dictionary)[Locale] }) 
           className="opacity-90 brightness-0 invert"
         />
         <div className="h-px w-12 bg-burgundy" />
+        <Link
+          href={`/${locale}/blog`}
+          className="text-xs font-semibold uppercase tracking-[0.14em] text-ivory/70 transition-colors hover:text-burgundy"
+        >
+          {dict.nav.blog}
+        </Link>
         <div className="flex items-center gap-5">
           {socials.map((s) => (
             <a key={s.name} href={s.href} aria-label={s.name} className="text-ivory/60 transition-colors hover:text-burgundy">

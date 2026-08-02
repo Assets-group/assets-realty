@@ -20,7 +20,6 @@ export default function Nav({
     { href: `/${locale}`, label: dict.nav.home },
     { href: `/${locale}/about`, label: dict.nav.about },
     { href: `/${locale}/residences`, label: dict.nav.residences },
-    { href: `/${locale}/blog`, label: dict.nav.blog },
     { href: `/${locale}/contact`, label: dict.nav.contact },
   ];
 

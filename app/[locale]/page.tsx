@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { getDictionary } from "@/lib/dictionary";
-import type { BlogPost, CurrentProject, Locale } from "@/lib/types";
+import type { BlogPost, CurrentProject, Listing, Locale } from "@/lib/types";
 import CurrentProjectsSlideshow from "@/components/public/CurrentProjectsSlideshow";
 import BlogCard from "@/components/public/BlogCard";
 import Reveal from "@/components/public/Reveal";
@@ -26,6 +26,14 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
     .select("*")
     .eq("published", true)
     .order("sort_order", { ascending: true });
+
+  const { data: featuredListings } = await supabase
+    .from("listings")
+    .select("*")
+    .eq("published", true)
+    .order("featured", { ascending: false })
+    .order("created_at", { ascending: false })
+    .limit(3);
 
   const { data: blogPosts } = await supabase
     .from("blog_posts")
@@ -101,7 +109,39 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
               <CurrentProjectsSlideshow
                 projects={currentProjects as CurrentProject[]}
                 locale={params.locale}
+                dict={dict}
               />
+            </div>
+          </section>
+        </Reveal>
+      )}
+
+      {/* Featured Properties teaser */}
+      {featuredListings && featuredListings.length > 0 && (
+        <Reveal>
+          <section className="max-w-content mx-auto px-8 pb-32">
+            <p className="eyebrow mx-auto w-fit text-maroon">{dict.propertiesTeaser.eyebrow}</p>
+            <h2 className="mt-5 text-center text-3xl font-light text-ink sm:text-4xl">
+              {dict.propertiesTeaser.title}
+            </h2>
+            <div className="mt-14 grid grid-cols-1 gap-6 sm:grid-cols-3">
+              {(featuredListings as Listing[]).map((listing) => (
+                <div key={listing.id} className="card-media relative aspect-[4/3] bg-ink/5">
+                  {listing.main_image_url && (
+                    <Image
+                      src={listing.main_image_url}
+                      alt={params.locale === "en" ? listing.name_en : listing.name_ar}
+                      fill
+                      className="object-cover"
+                    />
+                  )}
+                </div>
+              ))}
+            </div>
+            <div className="mt-12 text-center">
+              <Link href={`/${params.locale}/residences`} className="btn-boutique">
+                {dict.propertiesTeaser.viewAll}
+              </Link>
             </div>
           </section>
         </Reveal>

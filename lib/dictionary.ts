@@ -67,6 +67,12 @@ export const dictionary = {
     },
     currentProjects: {
       eyebrow: "Current Projects",
+      moreDetails: "More Details",
+    },
+    propertiesTeaser: {
+      eyebrow: "Featured Properties",
+      title: "Explore Our Properties",
+      viewAll: "View Properties",
     },
     blogSection: {
       eyebrow: "Insights",
@@ -165,6 +171,12 @@ export const dictionary = {
     },
     currentProjects: {
       eyebrow: "المشاريع الحالية",
+      moreDetails: "المزيد من التفاصيل",
+    },
+    propertiesTeaser: {
+      eyebrow: "عقارات مختارة",
+      title: "استكشف عقاراتنا",
+      viewAll: "عرض العقارات",
     },
     blogSection: {
       eyebrow: "رؤى وتحليلات",

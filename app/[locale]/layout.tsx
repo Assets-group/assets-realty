@@ -41,7 +41,7 @@ export default function LocaleLayout({
     <div dir={dir} lang={params.locale} className={dir === "rtl" ? "font-sans" : "font-sans"}>
       <Nav locale={params.locale} dict={dict} />
       <main>{children}</main>
-      <Footer dict={dict} />
+      <Footer dict={dict} locale={params.locale} />
     </div>
   );
 }
