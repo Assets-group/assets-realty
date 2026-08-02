@@ -41,20 +41,38 @@ export default function CurrentProjectForm({ project }: { project?: CurrentProje
         </Field>
       </div>
 
-      <Field label="Description (English)">
+      <Field label="Short description (English) — shown in the homepage slideshow">
         <textarea
           name="description_en"
-          rows={4}
+          rows={3}
           defaultValue={project?.description_en}
           className={inputClass}
         />
       </Field>
-      <Field label="Description (Arabic)">
+      <Field label="Short description (Arabic)">
         <textarea
           name="description_ar"
           dir="rtl"
-          rows={4}
+          rows={3}
           defaultValue={project?.description_ar}
+          className={inputClass}
+        />
+      </Field>
+
+      <Field label="Full details (English) — shown on the project's own page">
+        <textarea
+          name="body_en"
+          rows={10}
+          defaultValue={project?.body_en}
+          className={inputClass}
+        />
+      </Field>
+      <Field label="Full details (Arabic)">
+        <textarea
+          name="body_ar"
+          dir="rtl"
+          rows={10}
+          defaultValue={project?.body_ar}
           className={inputClass}
         />
       </Field>
@@ -62,8 +80,14 @@ export default function CurrentProjectForm({ project }: { project?: CurrentProje
       <ImageUploader
         bucket="project-photos"
         name="image_url"
-        label="Image"
+        label="Main Image"
         defaultValue={project?.image_url ?? undefined}
+      />
+      <ImageUploader
+        bucket="project-photos"
+        name="gallery_urls"
+        label="Gallery photos (optional, multiple)"
+        multiple
       />
 
       <label className="flex items-center gap-2 text-sm font-medium text-ink/70">

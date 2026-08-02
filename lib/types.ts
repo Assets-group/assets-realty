@@ -50,7 +50,10 @@ export interface CurrentProject {
   name_ar: string;
   description_en: string;
   description_ar: string;
+  body_en: string;
+  body_ar: string;
   image_url: string | null;
+  gallery_urls: string[];
   sort_order: number;
   published: boolean;
   created_by: string | null;

@@ -11,12 +11,20 @@ export async function saveCurrentProject(formData: FormData) {
   const supabase = createClient();
   const id = formData.get("id") as string | null;
 
+  const galleryRaw = formData.get("gallery_urls") as string;
+  const gallery_urls = galleryRaw
+    ? galleryRaw.split(",").map((s) => s.trim()).filter(Boolean)
+    : [];
+
   const payload = {
     name_en: formData.get("name_en") as string,
     name_ar: formData.get("name_ar") as string,
     description_en: formData.get("description_en") as string,
     description_ar: formData.get("description_ar") as string,
+    body_en: formData.get("body_en") as string,
+    body_ar: formData.get("body_ar") as string,
     image_url: formData.get("image_url") as string,
+    gallery_urls,
     sort_order: Number(formData.get("sort_order") ?? 0),
     published: formData.get("published") === "on",
   };
@@ -33,6 +41,7 @@ export async function saveCurrentProject(formData: FormData) {
 
   revalidatePath("/admin/current-projects");
   revalidatePath("/[locale]", "page");
+  revalidatePath("/[locale]/current-projects/[id]", "page");
   redirect("/admin/current-projects");
 }
 
