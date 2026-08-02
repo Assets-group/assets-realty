@@ -3,7 +3,8 @@ import Image from "next/image";
 import type { Locale, Listing } from "@/lib/types";
 import type { dictionary } from "@/lib/dictionary";
 
-function formatPrice(status: string, price: number) {
+function formatPrice(status: string, price: number | null, contactForPrice: string) {
+  if (price === null) return contactForPrice;
   const val = price.toLocaleString("en-US");
   return status === "For Rent" ? `SAR ${val} / yr` : `SAR ${val}`;
 }
@@ -39,7 +40,7 @@ export default function ListingCard({
           {listing.status === "For Rent" ? dict.residences.forRent : listing.status === "For Sale" ? dict.residences.forSale : listing.status}
         </span>
         <span className="absolute bottom-0 right-0 bg-maroon px-4 py-2 text-sm font-bold text-white">
-          {formatPrice(listing.status, listing.price)}
+          {formatPrice(listing.status, listing.price, dict.residences.contactForPrice)}
         </span>
       </div>
       <p className="mt-6 text-xs font-bold uppercase tracking-wider text-maroon">

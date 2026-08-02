@@ -6,7 +6,8 @@ import type { Locale, Listing } from "@/lib/types";
 import ListingInquiryForm from "@/components/public/ListingInquiryForm";
 import ListingGallery from "@/components/public/ListingGallery";
 
-function formatPrice(status: string, price: number) {
+function formatPrice(status: string, price: number | null, contactForPrice: string) {
+  if (price === null) return contactForPrice;
   const val = price.toLocaleString("en-US");
   return status === "For Rent" ? `SAR ${val} / yr` : `SAR ${val}`;
 }
@@ -17,6 +18,7 @@ export async function generateMetadata({
   params: { locale: Locale; slug: string };
 }): Promise<Metadata> {
   const supabase = createClient();
+  const dict = getDictionary(params.locale);
   const { data: listing } = await supabase
     .from("listings")
     .select("*")
@@ -33,7 +35,9 @@ export async function generateMetadata({
 
   return {
     title: name,
-    description: description || `${l.property_type} in ${area} — ${formatPrice(l.status, l.price)}`,
+    description:
+      description ||
+      `${l.property_type} in ${area} — ${formatPrice(l.status, l.price, dict.residences.contactForPrice)}`,
     openGraph: {
       title: name,
       description: description || undefined,
@@ -95,7 +99,7 @@ export default async function ListingDetailPage({
         )}
 
         <p className="mt-8 text-3xl font-light text-maroon">
-          {formatPrice(l.status, l.price)}
+          {formatPrice(l.status, l.price, dict.residences.contactForPrice)}
         </p>
 
         <div className="mt-10 max-w-lg">

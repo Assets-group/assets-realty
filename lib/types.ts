@@ -13,7 +13,7 @@ export interface Listing {
   status: ListingStatus;
   area_en: string;
   area_ar: string;
-  price: number;
+  price: number | null;
   bedrooms: number;
   bathrooms: number;
   area_sqm: number;

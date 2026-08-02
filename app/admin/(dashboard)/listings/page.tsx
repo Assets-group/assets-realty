@@ -42,7 +42,7 @@ export default async function AdminListingsPage() {
                 <td className="px-5 py-4 text-ink/70">{listing.property_type}</td>
                 <td className="px-5 py-4 text-ink/70">{listing.status}</td>
                 <td className="px-5 py-4 text-ink/70">
-                  SAR {listing.price.toLocaleString("en-US")}
+                  {listing.price !== null ? `SAR ${listing.price.toLocaleString("en-US")}` : "Contact for Price"}
                 </td>
                 <td className="px-5 py-4">
                   {listing.published ? (

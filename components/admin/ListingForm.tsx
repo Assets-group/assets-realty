@@ -74,12 +74,11 @@ export default function ListingForm({ listing }: { listing?: Listing }) {
             ))}
           </select>
         </Field>
-        <Field label="Price (SAR)">
+        <Field label="Price (SAR) — leave blank to show 'Contact for Price'">
           <input
-            required
             type="number"
             name="price"
-            defaultValue={listing?.price}
+            defaultValue={listing?.price ?? ""}
             className={inputClass}
           />
         </Field>

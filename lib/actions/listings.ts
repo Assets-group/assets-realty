@@ -35,7 +35,7 @@ export async function saveListing(formData: FormData) {
     status: formData.get("status") as string,
     area_en: formData.get("area_en") as string,
     area_ar: formData.get("area_ar") as string,
-    price: Number(formData.get("price")),
+    price: formData.get("price") ? Number(formData.get("price")) : null,
     bedrooms: Number(formData.get("bedrooms")),
     bathrooms: Number(formData.get("bathrooms")),
     area_sqm: Number(formData.get("area_sqm")),

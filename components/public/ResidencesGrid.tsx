@@ -39,7 +39,10 @@ export default function ResidencesGrid({
     const areaVal = locale === "en" ? l.area_en : l.area_ar;
     if (area !== "all" && areaVal !== area) return false;
     const band = PRICE_BANDS[priceBand];
-    if (l.price < band.min || l.price > band.max) return false;
+    if (priceBand !== 0) {
+      if (l.price === null) return false;
+      if (l.price < band.min || l.price > band.max) return false;
+    }
     return true;
   });
 
