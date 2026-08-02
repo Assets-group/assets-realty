@@ -26,13 +26,19 @@ export default async function ResidencesPage({ params }: { params: { locale: Loc
 
   return (
     <div>
-      <div className="max-w-content mx-auto px-8 pb-8 pt-16">
-        <p className="eyebrow mb-5 text-maroon">{dict.hero.eyebrow}</p>
-        <h1 className="max-w-xl text-4xl font-light text-ink sm:text-5xl">
-          {dict.residences.title}
-        </h1>
-        <p className="mt-4 max-w-lg text-ink/65">{dict.residences.subtitle}</p>
-      </div>
+      <section className="relative flex min-h-[40vh] items-center overflow-hidden bg-ink px-8 text-white">
+        <div
+          className="absolute inset-0 bg-gradient-to-b from-ink/80 via-ink/50 to-burgundy/60"
+          aria-hidden
+        />
+        <div className="max-w-content relative z-10 mx-auto">
+          <p className="eyebrow text-white/70">{dict.hero.eyebrow}</p>
+          <h1 className="mt-5 max-w-xl text-4xl font-light sm:text-5xl">
+            {dict.residences.title}
+          </h1>
+          <p className="mt-4 max-w-lg text-white/75">{dict.residences.subtitle}</p>
+        </div>
+      </section>
       <ResidencesGrid listings={(listings as Listing[]) ?? []} locale={params.locale} dict={dict} />
     </div>
   );
