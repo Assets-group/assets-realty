@@ -24,7 +24,7 @@ export default function Nav({
   ];
 
   return (
-    <header className="border-b border-line bg-ivory">
+    <header className="sticky top-0 z-50 border-b border-line bg-ivory/85 backdrop-blur-md">
       <div className="max-w-content mx-auto grid grid-cols-[auto_1fr_auto] items-center gap-6 px-8 py-6">
         <Link href={`/${locale}`} className="shrink-0">
           <Image src="/logo.png" alt="Assets Real Estate Investments" width={180} height={44} priority />

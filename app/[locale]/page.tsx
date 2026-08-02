@@ -3,6 +3,17 @@ import { createClient } from "@/lib/supabase/server";
 import { getDictionary } from "@/lib/dictionary";
 import type { CurrentProject, Locale } from "@/lib/types";
 import CurrentProjectsSlideshow from "@/components/public/CurrentProjectsSlideshow";
+import Reveal from "@/components/public/Reveal";
+
+const CLIENTS = [
+  { name: "Four Seasons Jeddah", file: "four-seasons" },
+  { name: "KAUST", file: "kaust" },
+  { name: "Saudi Aramco", file: "aramco" },
+  { name: "Lamar Towers", file: "lamar-towers" },
+  { name: "Al Mada Towers", file: "al-mada-towers" },
+  { name: "Golden Tower", file: "golden-tower" },
+  { name: "Thakher Development", file: "thakher" },
+];
 
 export default async function HomePage({ params }: { params: { locale: Locale } }) {
   const dict = getDictionary(params.locale);
@@ -39,102 +50,107 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
       </section>
 
       {/* Trust / Building Value */}
-      <section className="max-w-content mx-auto px-8 py-28">
-        <div className="grid grid-cols-1 gap-14 md:grid-cols-[1fr_1px_1.1fr]">
-          <h2 className="max-w-md text-3xl font-light leading-snug text-ink sm:text-4xl">
-            {dict.trustSection.title}
-          </h2>
-          <div className="hidden bg-burgundy/40 md:block" aria-hidden />
-          <div className="space-y-6 text-base leading-relaxed text-ink/70">
-            <p>{dict.trustSection.paragraph1}</p>
-            <p>{dict.trustSection.paragraph2}</p>
-            <p>{dict.trustSection.paragraph3}</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Trusted By */}
-      <section className="border-y border-line bg-stone/40 px-8 py-16">
-        <div className="max-w-content mx-auto">
-          <p className="eyebrow mx-auto mb-10 w-fit text-maroon">{dict.trustedBy.eyebrow}</p>
-          <div className="flex flex-wrap items-center justify-center gap-x-14 gap-y-8">
-            {[
-              { name: "Four Seasons Jeddah", file: "four-seasons" },
-              { name: "KAUST", file: "kaust" },
-              { name: "Saudi Aramco", file: "aramco" },
-              { name: "Lamar Towers", file: "lamar-towers" },
-              { name: "Al Mada Towers", file: "al-mada-towers" },
-              { name: "Golden Tower", file: "golden-tower" },
-              { name: "Thakher Development", file: "thakher" },
-            ].map((client) => (
-              <img
-                key={client.file}
-                src={`/clients/${client.file}.png`}
-                alt={client.name}
-                className="h-10 w-auto object-contain opacity-70 grayscale transition-opacity hover:opacity-100 sm:h-12"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Company Profile */}
-      <section className="bg-stone/50 px-8 py-28 text-center">
-        <div className="max-w-content mx-auto">
-          <p className="eyebrow mx-auto w-fit text-maroon">{dict.nav.businessProfile}</p>
-          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
-            <a href="/assets-business-profile.pdf" target="_blank" rel="noopener noreferrer" className="btn-boutique">
-              {dict.nav.businessProfile}
-            </a>
-            <a href="/fal-license.pdf" target="_blank" rel="noopener noreferrer" className="btn-boutique">
-              {dict.nav.falLicense}
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Current Projects */}
-      {currentProjects && currentProjects.length > 0 && (
-        <section className="max-w-content mx-auto px-8 py-32">
-          <p className="eyebrow mx-auto w-fit text-maroon">{dict.currentProjects.eyebrow}</p>
-          <div className="mt-10">
-            <CurrentProjectsSlideshow
-              projects={currentProjects as CurrentProject[]}
-              locale={params.locale}
-            />
+      <Reveal>
+        <section className="max-w-content mx-auto px-8 py-28">
+          <div className="grid grid-cols-1 gap-14 md:grid-cols-[1fr_1px_1.1fr]">
+            <h2 className="max-w-md text-3xl font-light leading-snug text-ink sm:text-4xl">
+              {dict.trustSection.title}
+            </h2>
+            <div className="hidden bg-burgundy/40 md:block" aria-hidden />
+            <div className="space-y-6 text-base leading-relaxed text-ink/70">
+              <p>{dict.trustSection.paragraph1}</p>
+              <p>{dict.trustSection.paragraph2}</p>
+              <p>{dict.trustSection.paragraph3}</p>
+            </div>
           </div>
         </section>
-      )}
+      </Reveal>
 
-      {/* Personal Real Estate */}
-      <section className="border-t border-line bg-stone/40 px-8 py-28">
-        <div className="max-w-content mx-auto grid grid-cols-1 gap-14 md:grid-cols-2">
-          <div>
-            <p className="eyebrow text-maroon">{dict.personalRealEstate.eyebrow}</p>
-            <h2 className="mt-5 text-3xl font-light leading-snug text-ink sm:text-4xl">
-              {dict.personalRealEstate.title}
-            </h2>
-            <p className="mt-6 max-w-md text-base leading-relaxed text-ink/70">
-              {dict.personalRealEstate.body}
-            </p>
-          </div>
-          <div>
-            <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
-              {dict.personalRealEstate.servicesLabel}
-            </p>
-            <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
-              {dict.personalRealEstate.services.map((service, i) => (
-                <div key={service} className="border-t border-line pt-4">
-                  <span className="text-2xl font-light text-burgundy">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                  <p className="mt-2 text-sm font-medium text-ink">{service}</p>
-                </div>
+      {/* Trusted By — auto-scrolling marquee */}
+      <Reveal>
+        <section className="border-y border-line bg-stone/40 py-16">
+          <p className="eyebrow mx-auto mb-10 w-fit text-maroon">{dict.trustedBy.eyebrow}</p>
+          <div className="overflow-hidden">
+            <div className="marquee-track flex w-max items-center gap-16">
+              {[...CLIENTS, ...CLIENTS].map((client, i) => (
+                <img
+                  key={client.file + i}
+                  src={`/clients/${client.file}.png`}
+                  alt={client.name}
+                  className="h-10 w-auto shrink-0 object-contain opacity-70 grayscale transition-opacity hover:opacity-100 sm:h-12"
+                />
               ))}
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </Reveal>
+
+      {/* Company Profile */}
+      <Reveal>
+        <section className="bg-stone/50 px-8 py-28 text-center">
+          <div className="max-w-content mx-auto">
+            <p className="eyebrow mx-auto w-fit text-maroon">{dict.nav.businessProfile}</p>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+              <a href="/assets-business-profile.pdf" target="_blank" rel="noopener noreferrer" className="btn-boutique">
+                {dict.nav.businessProfile}
+              </a>
+              <a href="/fal-license.pdf" target="_blank" rel="noopener noreferrer" className="btn-boutique">
+                {dict.nav.falLicense}
+              </a>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Current Projects */}
+      {currentProjects && currentProjects.length > 0 && (
+        <Reveal>
+          <section className="max-w-content mx-auto px-8 py-32">
+            <p className="eyebrow mx-auto w-fit text-maroon">{dict.currentProjects.eyebrow}</p>
+            <div className="mt-10">
+              <CurrentProjectsSlideshow
+                projects={currentProjects as CurrentProject[]}
+                locale={params.locale}
+              />
+            </div>
+          </section>
+        </Reveal>
+      )}
+
+      {/* Personal Real Estate */}
+      <Reveal>
+        <section className="border-t border-line bg-stone/40 px-8 py-28">
+          <div className="max-w-content mx-auto grid grid-cols-1 gap-14 md:grid-cols-2">
+            <div>
+              <p className="eyebrow text-maroon">{dict.personalRealEstate.eyebrow}</p>
+              <h2 className="mt-5 text-3xl font-light leading-snug text-ink sm:text-4xl">
+                {dict.personalRealEstate.title}
+              </h2>
+              <p className="mt-6 max-w-md text-base leading-relaxed text-ink/70">
+                {dict.personalRealEstate.body}
+              </p>
+            </div>
+            <div>
+              <p className="text-xs font-semibold uppercase tracking-[0.2em] text-ink/50">
+                {dict.personalRealEstate.servicesLabel}
+              </p>
+              <div className="mt-6 grid grid-cols-1 gap-8 sm:grid-cols-2">
+                {dict.personalRealEstate.services.map((service, i) => (
+                  <div
+                    key={service}
+                    className="rounded-lg border-t border-line pt-4 transition-shadow hover:shadow-md"
+                  >
+                    <span className="text-2xl font-light text-burgundy">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <p className="mt-2 text-sm font-medium text-ink">{service}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
     </>
   );
 }

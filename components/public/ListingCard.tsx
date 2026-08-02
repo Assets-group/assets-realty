@@ -22,7 +22,7 @@ export default function ListingCard({
 
   return (
     <Link href={`/${locale}/residences/${listing.slug}`} className="group block">
-      <div className="relative aspect-[4/3] overflow-hidden bg-ink/5">
+      <div className="card-media group-hover:shadow-xl relative aspect-[4/3] bg-ink/5">
         {listing.main_image_url && (
           <Image
             src={listing.main_image_url}

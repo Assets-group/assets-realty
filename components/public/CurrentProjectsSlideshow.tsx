@@ -28,7 +28,7 @@ export default function CurrentProjectsSlideshow({
   const description = locale === "en" ? project.description_en : project.description_ar;
 
   return (
-    <div className="grid grid-cols-1 overflow-hidden border border-line md:min-h-[560px] md:grid-cols-2">
+    <div className="grid grid-cols-1 overflow-hidden rounded-2xl border border-line shadow-lg md:min-h-[560px] md:grid-cols-2">
       <div className="relative aspect-[4/3] w-full md:aspect-auto">
         {project.image_url && (
           <Image

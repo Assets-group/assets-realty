@@ -26,10 +26,10 @@ select:focus-visible {
 
 @layer components {
   .btn-boutique {
-    @apply inline-flex items-center justify-center border border-ink px-9 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-ink transition-colors duration-300 hover:bg-ink hover:text-ivory;
+    @apply inline-flex items-center justify-center rounded-md border border-ink px-9 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-ink shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-ink hover:text-ivory hover:shadow-lg;
   }
   .btn-boutique-inverse {
-    @apply inline-flex items-center justify-center border border-ivory/70 px-9 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-ivory transition-colors duration-300 hover:bg-ivory hover:text-ink;
+    @apply inline-flex items-center justify-center rounded-md border border-ivory/70 px-9 py-4 text-xs font-semibold uppercase tracking-[0.18em] text-ivory shadow-sm transition-all duration-300 hover:-translate-y-0.5 hover:bg-ivory hover:text-ink hover:shadow-lg;
   }
   .eyebrow {
     @apply flex items-center gap-3 text-xs font-semibold uppercase tracking-[0.28em];
@@ -38,6 +38,35 @@ select:focus-visible {
     content: "";
     @apply h-px w-9 bg-burgundy;
   }
+  .card-media {
+    @apply overflow-hidden rounded-2xl shadow-md transition-shadow duration-300;
+  }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+  }
+  .reveal.reveal-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee-track {
+  animation: marquee 28s linear infinite;
+}
+
+.marquee-track:hover {
+  animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {

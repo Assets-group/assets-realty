@@ -14,7 +14,7 @@ export default function ProjectCard({
 
   return (
     <article>
-      <div className="group relative aspect-[4/3] overflow-hidden bg-ink/5">
+      <div className="card-media group relative aspect-[4/3] bg-ink/5 hover:shadow-xl">
         {project.photo_url && (
           <Image
             src={project.photo_url}

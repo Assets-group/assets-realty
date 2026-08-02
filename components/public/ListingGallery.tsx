@@ -24,7 +24,7 @@ export default function ListingGallery({
   return (
     <div>
       <div className="max-w-content mx-auto px-8 pt-8">
-        <div className="relative aspect-[16/9] w-full overflow-hidden bg-ink/5">
+        <div className="relative aspect-[16/9] w-full overflow-hidden rounded-2xl bg-ink/5 shadow-lg">
           <Image src={images[selected]} alt={alt} fill className="object-cover" priority />
           {showArrows && (
             <>
@@ -62,7 +62,7 @@ export default function ListingGallery({
                 type="button"
                 onClick={() => setSelected(i)}
                 aria-label={`Show photo ${i + 1}`}
-                className={`relative h-20 w-28 shrink-0 overflow-hidden border-2 transition-colors ${
+                className={`relative h-20 w-28 shrink-0 overflow-hidden rounded-lg border-2 transition-colors ${
                   i === selected ? "border-maroon" : "border-transparent"
                 }`}
               >
