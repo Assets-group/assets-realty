@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import type { Locale, Listing } from "@/lib/types";
 import type { dictionary } from "@/lib/dictionary";
 import ListingCard from "./ListingCard";
+import Reveal from "./Reveal";
 
 const TYPES = ["Villa", "Apartment", "Penthouse", "Branded Residence"] as const;
 const PRICE_BANDS = [
@@ -44,12 +45,12 @@ export default function ResidencesGrid({
 
   return (
     <div>
-      <div className="sticky top-0 z-10 border-y border-line bg-white/95 px-8 py-4 backdrop-blur">
+      <div className="sticky top-[92px] z-10 border-y border-line bg-white/95 px-8 py-4 backdrop-blur">
         <div className="max-w-content mx-auto flex flex-wrap items-center gap-3">
           <select
             value={type}
             onChange={(e) => setType(e.target.value)}
-            className="border border-line px-4 py-2 text-sm font-medium"
+            className="rounded-md border border-line px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:border-ink"
           >
             <option value="all">{dict.residences.allTypes}</option>
             {TYPES.map((t) => (
@@ -61,7 +62,7 @@ export default function ResidencesGrid({
           <select
             value={area}
             onChange={(e) => setArea(e.target.value)}
-            className="border border-line px-4 py-2 text-sm font-medium"
+            className="rounded-md border border-line px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:border-ink"
           >
             <option value="all">{dict.residences.allAreas}</option>
             {areas.map((a) => (
@@ -73,7 +74,7 @@ export default function ResidencesGrid({
           <select
             value={status}
             onChange={(e) => setStatus(e.target.value)}
-            className="border border-line px-4 py-2 text-sm font-medium"
+            className="rounded-md border border-line px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:border-ink"
           >
             <option value="all">
               {dict.residences.forSale} / {dict.residences.forRent}
@@ -84,7 +85,7 @@ export default function ResidencesGrid({
           <select
             value={priceBand}
             onChange={(e) => setPriceBand(Number(e.target.value))}
-            className="border border-line px-4 py-2 text-sm font-medium"
+            className="rounded-md border border-line px-4 py-2 text-sm font-medium shadow-sm transition-colors hover:border-ink"
           >
             <option value={0}>{dict.residences.anyPrice}</option>
             <option value={1}>Under SAR 3M</option>
@@ -103,11 +104,13 @@ export default function ResidencesGrid({
             {dict.residences.empty}
           </p>
         ) : (
-          <div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2">
-            {filtered.map((listing) => (
-              <ListingCard key={listing.id} listing={listing} locale={locale} dict={dict} />
-            ))}
-          </div>
+          <Reveal>
+            <div className="grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-2">
+              {filtered.map((listing) => (
+                <ListingCard key={listing.id} listing={listing} locale={locale} dict={dict} />
+              ))}
+            </div>
+          </Reveal>
         )}
       </div>
     </div>

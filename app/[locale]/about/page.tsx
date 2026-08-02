@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { getDictionary } from "@/lib/dictionary";
 import type { Locale } from "@/lib/types";
+import Reveal from "@/components/public/Reveal";
 
 export async function generateMetadata({
   params,
@@ -27,15 +28,17 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
         </div>
       </section>
 
-      <div className="max-w-content mx-auto grid grid-cols-1 gap-14 px-8 py-24 md:grid-cols-[auto_1fr]">
-        <div className="flex items-start gap-4">
-          <span className="text-6xl font-light leading-none text-maroon">20+</span>
-          <span className="mt-1 max-w-[8rem] text-xs font-semibold uppercase leading-snug tracking-[0.14em] text-ink/50">
-            Years of Experience
-          </span>
+      <Reveal>
+        <div className="max-w-content mx-auto grid grid-cols-1 gap-14 px-8 py-24 md:grid-cols-[auto_1fr]">
+          <div className="flex items-start gap-4">
+            <span className="text-6xl font-light leading-none text-maroon">20+</span>
+            <span className="mt-1 max-w-[8rem] text-xs font-semibold uppercase leading-snug tracking-[0.14em] text-ink/50">
+              Years of Experience
+            </span>
+          </div>
+          <p className="max-w-2xl text-lg leading-relaxed text-ink/75">{dict.about.body}</p>
         </div>
-        <p className="max-w-2xl text-lg leading-relaxed text-ink/75">{dict.about.body}</p>
-      </div>
+      </Reveal>
     </div>
   );
 }

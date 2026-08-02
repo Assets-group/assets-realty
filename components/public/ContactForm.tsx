@@ -27,7 +27,7 @@ export default function ContactForm({ dict }: { dict: (typeof dictionary)[Locale
           required
           name="name"
           type="text"
-          className="w-full border border-line px-4 py-3 focus:border-maroon focus:outline-none"
+          className="w-full rounded-md border border-line px-4 py-3 shadow-sm transition-colors focus:border-maroon focus:outline-none"
         />
       </div>
       <div>
@@ -36,7 +36,7 @@ export default function ContactForm({ dict }: { dict: (typeof dictionary)[Locale
           required
           name="email"
           type="email"
-          className="w-full border border-line px-4 py-3 focus:border-maroon focus:outline-none"
+          className="w-full rounded-md border border-line px-4 py-3 shadow-sm transition-colors focus:border-maroon focus:outline-none"
         />
       </div>
       <div>
@@ -47,14 +47,14 @@ export default function ContactForm({ dict }: { dict: (typeof dictionary)[Locale
           required
           name="message"
           rows={5}
-          className="w-full border border-line px-4 py-3 focus:border-maroon focus:outline-none"
+          className="w-full rounded-md border border-line px-4 py-3 shadow-sm transition-colors focus:border-maroon focus:outline-none"
         />
       </div>
       {status === "error" && <p className="text-sm text-red-600">{dict.contact.error}</p>}
       <button
         type="submit"
         disabled={status === "sending"}
-        className="bg-ink px-8 py-3 text-sm font-bold uppercase tracking-wider text-white transition-colors hover:bg-maroon disabled:opacity-60"
+        className="rounded-md bg-ink px-8 py-3 text-sm font-bold uppercase tracking-wider text-white shadow-sm transition-all hover:-translate-y-0.5 hover:bg-maroon hover:shadow-lg disabled:opacity-60 disabled:hover:translate-y-0"
       >
         {dict.contact.send}
       </button>
