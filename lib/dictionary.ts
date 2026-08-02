@@ -7,7 +7,7 @@ export const dictionary = {
       about: "About us",
       residences: "Properties",
       pastProjects: "Past Projects",
-      businessProfile: "Business Profile",
+      businessProfile: "Company Profile",
       contact: "Connect with Us",
       langToggle: "العربية",
     },
