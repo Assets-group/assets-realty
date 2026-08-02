@@ -28,15 +28,76 @@ export default function AboutPage({ params }: { params: { locale: Locale } }) {
         </div>
       </section>
 
+      {/* Intro + stats */}
       <Reveal>
-        <div className="max-w-content mx-auto grid grid-cols-1 gap-14 px-8 py-24 md:grid-cols-[auto_1fr]">
-          <div className="flex items-start gap-4">
-            <span className="text-6xl font-light leading-none text-maroon">20+</span>
-            <span className="mt-1 max-w-[8rem] text-xs font-semibold uppercase leading-snug tracking-[0.14em] text-ink/50">
-              Years of Experience
-            </span>
-          </div>
+        <div className="max-w-content mx-auto px-8 py-24">
           <p className="max-w-2xl text-lg leading-relaxed text-ink/75">{dict.about.body}</p>
+          <div className="mt-14 grid grid-cols-1 gap-10 border-t border-line pt-10 sm:grid-cols-2">
+            {dict.about.stats.map((stat) => (
+              <div key={stat.label}>
+                <p className="text-5xl font-light leading-none text-maroon">{stat.value}</p>
+                <p className="mt-3 text-xs font-semibold uppercase tracking-[0.14em] text-ink/50">
+                  {stat.label}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Journey timeline */}
+      <Reveal>
+        <div className="border-t border-line bg-stone/40 px-8 py-24">
+          <div className="max-w-content mx-auto">
+            <h2 className="text-3xl font-light text-ink sm:text-4xl">
+              {dict.about.journey.title}
+            </h2>
+            <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+              {dict.about.journey.milestones.map((m) => (
+                <div key={m.year} className="border-t-2 border-maroon pt-5">
+                  <p className="text-xs font-bold uppercase tracking-wider text-maroon">
+                    {m.year}
+                  </p>
+                  <h3 className="mt-2 text-xl font-medium text-ink">{m.title}</h3>
+                  <p className="mt-2 text-sm leading-relaxed text-ink/65">{m.description}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Principles */}
+      <Reveal>
+        <div className="max-w-content mx-auto px-8 py-24">
+          <h2 className="text-3xl font-light text-ink sm:text-4xl">
+            {dict.about.principles.title}
+          </h2>
+          <div className="mt-14 grid grid-cols-1 gap-10 sm:grid-cols-3">
+            {dict.about.principles.items.map((item) => (
+              <div key={item.title} className="rounded-lg border border-line p-8 shadow-sm transition-shadow hover:shadow-md">
+                <h3 className="text-xl font-medium text-ink">{item.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-ink/65">{item.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </Reveal>
+
+      {/* Services */}
+      <Reveal>
+        <div className="border-t border-line bg-ink px-8 py-24 text-white">
+          <div className="max-w-content mx-auto">
+            <h2 className="text-3xl font-light sm:text-4xl">{dict.about.services.title}</h2>
+            <div className="mt-12 grid grid-cols-1 gap-x-10 gap-y-5 sm:grid-cols-2">
+              {dict.about.services.items.map((service) => (
+                <div key={service} className="flex items-center gap-4 border-b border-white/15 pb-5">
+                  <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-burgundy" />
+                  <p className="text-white/85">{service}</p>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </Reveal>
     </div>

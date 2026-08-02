@@ -22,6 +22,64 @@ export const dictionary = {
       eyebrow: "About Us",
       title: "More Than 20 Years of Experience",
       body: "We are a real estate investment and consultancy company that prioritizes customer satisfaction. We offer the best services in the industry to help our clients achieve their goals and aspirations. We rely on our extensive experience and professional consultants to provide our clients with expert advice and guidance at all times. We also promote the principles of transparency, mutual trust, credibility, and sustainability to build strong and lasting relationships with our clients.",
+      stats: [
+        { value: "20+", label: "Years of Experience" },
+        { value: "SAR 1B+", label: "In Project Sales Contributed" },
+      ],
+      journey: {
+        title: "Our Journey of Excellence",
+        milestones: [
+          {
+            year: "2005",
+            title: "Foundation",
+            description: "Two private bankers with 25 years of combined experience establish ASSETS.",
+          },
+          {
+            year: "2010–2020",
+            title: "Rapid Growth",
+            description: "Contributed to projects with over SAR 1 Billion in sales.",
+          },
+          {
+            year: "2020–2022",
+            title: "Challenging Market",
+            description: "Closed market and pressure to survive.",
+          },
+          {
+            year: "2022–2025",
+            title: "Back on Track",
+            description: "Positioned as a trusted advisor for high-net-worth real estate investors.",
+          },
+        ],
+      },
+      principles: {
+        title: "Principles That Drive Our Success",
+        items: [
+          {
+            title: "Advisory",
+            description: "Delivering strategic and market-aligned insights to our clients.",
+          },
+          {
+            title: "Trustworthy",
+            description: "Building long-term client relationships based on mutual respect.",
+          },
+          {
+            title: "Credibility",
+            description: "Leveraging proven expertise and deep industry knowledge.",
+          },
+        ],
+      },
+      services: {
+        title: "ASSETS Services",
+        items: [
+          "Real Estate Brokerage and Management",
+          "Sales and Marketing",
+          "Leasing and Properties' Management",
+          "Real Estate Advisory",
+          "Assets Management",
+          "Private Placement and Finance Services",
+          "Real Estate Development",
+        ],
+      },
     },
     trustSection: {
       title: "ASSETS Real Estate Investment: Building Trust, Creating Value",
@@ -127,6 +185,64 @@ export const dictionary = {
       eyebrow: "عن أصول",
       title: "أكثر من 20 عامًا من الخبرة",
       body: "نحن شركة استثمار واستشارات عقارية تضع رضا العملاء في مقدمة أولوياتها. نقدم أفضل الخدمات في القطاع لمساعدة عملائنا على تحقيق أهدافهم وتطلعاتهم. نعتمد على خبرتنا الواسعة واستشاريينا المحترفين لتزويد عملائنا بالمشورة والتوجيه بشكل دائم. كما نتبنى مبادئ الشفافية والثقة المتبادلة والمصداقية والاستدامة لبناء علاقات قوية ودائمة مع عملائنا.",
+      stats: [
+        { value: "+20", label: "عامًا من الخبرة" },
+        { value: "+1 مليار ريال", label: "من مبيعات المشاريع" },
+      ],
+      journey: {
+        title: "رحلتنا نحو التميز",
+        milestones: [
+          {
+            year: "2005",
+            title: "التأسيس",
+            description: "قام اثنان من المصرفيين الخاصين بخبرة مشتركة تمتد لـ 25 عامًا بتأسيس أصول.",
+          },
+          {
+            year: "2010–2020",
+            title: "نمو متسارع",
+            description: "ساهمنا في مشاريع تجاوزت مبيعاتها 1 مليار ريال سعودي.",
+          },
+          {
+            year: "2020–2022",
+            title: "تحديات السوق",
+            description: "سوق متعثر وضغوط من أجل الاستمرار.",
+          },
+          {
+            year: "2022–2025",
+            title: "العودة إلى المسار الصحيح",
+            description: "تموضعنا كمستشار موثوق لمستثمري العقارات ذوي الثروات العالية.",
+          },
+        ],
+      },
+      principles: {
+        title: "المبادئ التي تقود نجاحنا",
+        items: [
+          {
+            title: "الاستشارات",
+            description: "تقديم رؤى استراتيجية متوافقة مع السوق لعملائنا.",
+          },
+          {
+            title: "الثقة",
+            description: "بناء علاقات طويلة الأمد مع العملاء قائمة على الاحترام المتبادل.",
+          },
+          {
+            title: "المصداقية",
+            description: "الاستفادة من خبرة مثبتة ومعرفة عميقة بالقطاع.",
+          },
+        ],
+      },
+      services: {
+        title: "خدمات أصول",
+        items: [
+          "الوساطة العقارية وإدارتها",
+          "المبيعات والتسويق",
+          "إدارة التأجير والعقارات",
+          "الاستشارات العقارية",
+          "إدارة الأصول",
+          "خدمات التمويل والطرح الخاص",
+          "التطوير العقاري",
+        ],
+      },
     },
     trustSection: {
       title: "أصول للاستثمارات العقارية: نبني الثقة، نصنع القيمة",
