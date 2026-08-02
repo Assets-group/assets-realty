@@ -75,25 +75,6 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
         </section>
       </Reveal>
 
-      {/* Trusted By — auto-scrolling marquee */}
-      <Reveal>
-        <section className="border-y border-line bg-stone/40 py-16">
-          <p className="eyebrow mx-auto mb-10 w-fit text-maroon">{dict.trustedBy.eyebrow}</p>
-          <div className="overflow-hidden">
-            <div className="marquee-track flex w-max items-center gap-16">
-              {[...CLIENTS, ...CLIENTS].map((client, i) => (
-                <img
-                  key={client.file + i}
-                  src={`/clients/${client.file}.png`}
-                  alt={client.name}
-                  className="h-10 w-auto shrink-0 object-contain opacity-70 grayscale transition-opacity hover:opacity-100 sm:h-12"
-                />
-              ))}
-            </div>
-          </div>
-        </section>
-      </Reveal>
-
       {/* Company Profile */}
       <Reveal>
         <section className="bg-stone/50 px-8 py-28 text-center">
@@ -156,6 +137,25 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
                   </div>
                 ))}
               </div>
+            </div>
+          </div>
+        </section>
+      </Reveal>
+
+      {/* Trusted By — auto-scrolling marquee */}
+      <Reveal>
+        <section className="border-y border-line bg-stone/40 py-16">
+          <p className="eyebrow mx-auto mb-10 w-fit text-maroon">{dict.trustedBy.eyebrow}</p>
+          <div className="overflow-hidden">
+            <div className="marquee-track flex w-max items-center gap-16">
+              {[...CLIENTS, ...CLIENTS].map((client, i) => (
+                <img
+                  key={client.file + i}
+                  src={`/clients/${client.file}.png`}
+                  alt={client.name}
+                  className="h-10 w-auto shrink-0 object-contain opacity-70 grayscale transition-opacity hover:opacity-100 sm:h-12"
+                />
+              ))}
             </div>
           </div>
         </section>
