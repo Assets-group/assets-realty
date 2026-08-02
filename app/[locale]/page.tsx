@@ -70,13 +70,18 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
         </div>
       </section>
 
-      {/* Business Profile */}
+      {/* Company Profile */}
       <section className="bg-stone/50 px-8 py-28 text-center">
         <div className="max-w-content mx-auto">
           <p className="eyebrow mx-auto w-fit text-maroon">{dict.nav.businessProfile}</p>
-          <a href="/assets-business-profile.pdf" target="_blank" rel="noopener noreferrer" className="btn-boutique mt-8 inline-flex">
-            {dict.nav.businessProfile}
-          </a>
+          <div className="mt-8 flex flex-wrap items-center justify-center gap-4">
+            <a href="/assets-business-profile.pdf" target="_blank" rel="noopener noreferrer" className="btn-boutique">
+              {dict.nav.businessProfile}
+            </a>
+            <a href="/fal-license.pdf" target="_blank" rel="noopener noreferrer" className="btn-boutique">
+              {dict.nav.falLicense}
+            </a>
+          </div>
         </div>
       </section>
 

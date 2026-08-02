@@ -8,6 +8,7 @@ export const dictionary = {
       residences: "Properties",
       pastProjects: "Past Projects",
       businessProfile: "Company Profile",
+      falLicense: "FAL License",
       contact: "Connect with Us",
       langToggle: "العربية",
     },
@@ -66,7 +67,7 @@ export const dictionary = {
       send: "Send Inquiry",
     },
     trustedBy: {
-      eyebrow: "Trusted By",
+      eyebrow: "Our Partners",
     },
     currentProjects: {
       eyebrow: "Current Projects",
@@ -98,6 +99,7 @@ export const dictionary = {
       residences: "العقارات",
       pastProjects: "مشاريعنا السابقة",
       businessProfile: "الملف التعريفي",
+      falLicense: "رخصة فال",
       contact: "تواصل معنا",
       langToggle: "English",
     },
@@ -155,7 +157,7 @@ export const dictionary = {
       send: "إرسال الاستفسار",
     },
     trustedBy: {
-      eyebrow: "عملاؤنا وشركاؤنا",
+      eyebrow: "شركاؤنا",
     },
     currentProjects: {
       eyebrow: "المشاريع الحالية",
