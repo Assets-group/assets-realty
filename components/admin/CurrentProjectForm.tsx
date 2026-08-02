@@ -87,6 +87,7 @@ export default function CurrentProjectForm({ project }: { project?: CurrentProje
         bucket="project-photos"
         name="gallery_urls"
         label="Gallery photos (optional, multiple)"
+        defaultValue={project?.gallery_urls}
         multiple
       />
 

@@ -156,6 +156,7 @@ export default function ListingForm({ listing }: { listing?: Listing }) {
         bucket="listing-photos"
         name="gallery_urls"
         label="Gallery photos (optional, multiple)"
+        defaultValue={listing?.gallery_urls}
         multiple
       />
 

@@ -14,10 +14,16 @@ export default function ImageUploader({
   bucket: "listing-photos" | "project-photos";
   name: string;
   label: string;
-  defaultValue?: string;
+  defaultValue?: string | string[];
   multiple?: boolean;
 }) {
-  const [urls, setUrls] = useState<string[]>(defaultValue ? [defaultValue] : []);
+  const initialUrls = Array.isArray(defaultValue)
+    ? defaultValue
+    : defaultValue
+      ? [defaultValue]
+      : [];
+
+  const [urls, setUrls] = useState<string[]>(initialUrls);
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
@@ -46,6 +52,10 @@ export default function ImageUploader({
     setUploading(false);
   }
 
+  function removeUrl(url: string) {
+    setUrls((prev) => prev.filter((u) => u !== url));
+  }
+
   return (
     <div>
       <label className="mb-1 block text-sm font-medium text-ink/70">{label}</label>
@@ -61,8 +71,16 @@ export default function ImageUploader({
       {urls.length > 0 && (
         <div className="mt-3 flex flex-wrap gap-2">
           {urls.map((url) => (
-            <div key={url} className="relative h-20 w-20 overflow-hidden bg-ink/5">
+            <div key={url} className="group relative h-20 w-20 overflow-hidden bg-ink/5">
               <Image src={url} alt="" fill className="object-cover" />
+              <button
+                type="button"
+                onClick={() => removeUrl(url)}
+                aria-label="Remove image"
+                className="absolute right-0 top-0 flex h-5 w-5 items-center justify-center bg-ink/70 text-xs text-white opacity-0 transition-opacity group-hover:opacity-100"
+              >
+                ×
+              </button>
             </div>
           ))}
         </div>
