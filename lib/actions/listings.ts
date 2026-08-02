@@ -49,12 +49,26 @@ export async function saveListing(formData: FormData) {
 
   if (id) {
     const { error } = await supabase.from("listings").update(payload).eq("id", id);
-    if (error) throw new Error(error.message);
+    if (error) {
+      if (error.code === "23505") {
+        throw new Error(
+          "A listing with this name or URL slug already exists. Please use a different name, or set a custom slug."
+        );
+      }
+      throw new Error(error.message);
+    }
   } else {
     const { error } = await supabase
       .from("listings")
       .insert({ ...payload, created_by: employee.id });
-    if (error) throw new Error(error.message);
+    if (error) {
+      if (error.code === "23505") {
+        throw new Error(
+          "A listing with this name or URL slug already exists. Please use a different name, or set a custom slug."
+        );
+      }
+      throw new Error(error.message);
+    }
   }
 
   revalidatePath("/admin/listings");
