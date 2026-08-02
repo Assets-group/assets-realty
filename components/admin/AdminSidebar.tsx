@@ -8,6 +8,7 @@ export default function AdminSidebar({ employee }: { employee: Employee }) {
     { href: "/admin/listings", label: "Listings" },
     { href: "/admin/past-projects", label: "Past Projects" },
     { href: "/admin/current-projects", label: "Current Projects" },
+    { href: "/admin/blog", label: "Blog" },
     { href: "/admin/inquiries", label: "Inquiries" },
   ];
 

@@ -1,8 +1,10 @@
 import Image from "next/image";
+import Link from "next/link";
 import { createClient } from "@/lib/supabase/server";
 import { getDictionary } from "@/lib/dictionary";
-import type { CurrentProject, Locale } from "@/lib/types";
+import type { BlogPost, CurrentProject, Locale } from "@/lib/types";
 import CurrentProjectsSlideshow from "@/components/public/CurrentProjectsSlideshow";
+import BlogCard from "@/components/public/BlogCard";
 import Reveal from "@/components/public/Reveal";
 
 const CLIENTS = [
@@ -24,6 +26,13 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
     .select("*")
     .eq("published", true)
     .order("sort_order", { ascending: true });
+
+  const { data: blogPosts } = await supabase
+    .from("blog_posts")
+    .select("*")
+    .eq("published", true)
+    .order("created_at", { ascending: false })
+    .limit(3);
 
   return (
     <>
@@ -151,6 +160,28 @@ export default async function HomePage({ params }: { params: { locale: Locale } 
           </div>
         </section>
       </Reveal>
+
+      {/* From the Blog */}
+      {blogPosts && blogPosts.length > 0 && (
+        <Reveal>
+          <section className="max-w-content mx-auto px-8 py-32">
+            <p className="eyebrow mx-auto w-fit text-maroon">{dict.blogSection.eyebrow}</p>
+            <h2 className="mt-5 text-center text-3xl font-light text-ink sm:text-4xl">
+              {dict.blogSection.title}
+            </h2>
+            <div className="mt-16 grid grid-cols-1 gap-x-12 gap-y-16 sm:grid-cols-3">
+              {(blogPosts as BlogPost[]).map((post) => (
+                <BlogCard key={post.id} post={post} locale={params.locale} dict={dict} />
+              ))}
+            </div>
+            <div className="mt-16 text-center">
+              <Link href={`/${params.locale}/blog`} className="btn-boutique">
+                {dict.blogSection.viewAll}
+              </Link>
+            </div>
+          </section>
+        </Reveal>
+      )}
     </>
   );
 }

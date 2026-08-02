@@ -9,6 +9,7 @@ export const dictionary = {
       pastProjects: "Past Projects",
       businessProfile: "Company Profile",
       falLicense: "FAL License",
+      blog: "Blog",
       contact: "Connect with Us",
       langToggle: "العربية",
     },
@@ -72,6 +73,13 @@ export const dictionary = {
     currentProjects: {
       eyebrow: "Current Projects",
     },
+    blogSection: {
+      eyebrow: "Insights",
+      title: "From the Blog",
+      readMore: "Read More",
+      viewAll: "View All Articles",
+      empty: "No articles yet — check back soon.",
+    },
     personalRealEstate: {
       eyebrow: "Personal Real Estate",
       title: "The ideal solution for owning or selling real estate",
@@ -105,6 +113,7 @@ export const dictionary = {
       pastProjects: "مشاريعنا السابقة",
       businessProfile: "الملف التعريفي",
       falLicense: "رخصة فال",
+      blog: "المدونة",
       contact: "تواصل معنا",
       langToggle: "English",
     },
@@ -166,6 +175,13 @@ export const dictionary = {
     },
     currentProjects: {
       eyebrow: "المشاريع الحالية",
+    },
+    blogSection: {
+      eyebrow: "رؤى وتحليلات",
+      title: "من المدونة",
+      readMore: "اقرأ المزيد",
+      viewAll: "عرض جميع المقالات",
+      empty: "لا توجد مقالات بعد — تابعونا قريبًا.",
     },
     personalRealEstate: {
       eyebrow: "العقارات الشخصية",

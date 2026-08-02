@@ -45,6 +45,22 @@ export interface PastProject {
   updated_at: string;
 }
 
+export interface BlogPost {
+  id: string;
+  slug: string;
+  title_en: string;
+  title_ar: string;
+  excerpt_en: string;
+  excerpt_ar: string;
+  body_en: string;
+  body_ar: string;
+  cover_image_url: string | null;
+  published: boolean;
+  created_by: string | null;
+  created_at: string;
+  updated_at: string;
+}
+
 export interface CurrentProject {
   id: string;
   name_en: string;

@@ -1,15 +1,20 @@
 import type { MetadataRoute } from "next";
 import { createClient } from "@/lib/supabase/server";
 
-const BASE_URL = "https://assets-realty.vercel.app";
+const BASE_URL = "https://assets-group.com";
 const LOCALES = ["en", "ar"] as const;
-const STATIC_PATHS = ["", "/about", "/residences", "/contact"];
+const STATIC_PATHS = ["", "/about", "/residences", "/blog", "/contact"];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const supabase = createClient();
 
   const { data: listings } = await supabase
     .from("listings")
+    .select("slug, updated_at")
+    .eq("published", true);
+
+  const { data: posts } = await supabase
+    .from("blog_posts")
     .select("slug, updated_at")
     .eq("published", true);
 
@@ -29,6 +34,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
         lastModified: listing.updated_at,
         changeFrequency: "weekly",
         priority: 0.9,
+      });
+    }
+    for (const post of posts ?? []) {
+      entries.push({
+        url: `${BASE_URL}/${locale}/blog/${post.slug}`,
+        lastModified: post.updated_at,
+        changeFrequency: "monthly",
+        priority: 0.6,
       });
     }
   }
