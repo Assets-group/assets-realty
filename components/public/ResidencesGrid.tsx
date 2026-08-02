@@ -6,7 +6,7 @@ import type { dictionary } from "@/lib/dictionary";
 import ListingCard from "./ListingCard";
 import Reveal from "./Reveal";
 
-const TYPES = ["Villa", "Apartment", "Penthouse", "Branded Residence"] as const;
+const TYPES = ["Villa", "Apartment", "Penthouse", "Branded Residence", "Land"] as const;
 const PRICE_BANDS = [
   { label: "any", min: 0, max: Infinity },
   { label: "under3", min: 0, max: 3_000_000 },

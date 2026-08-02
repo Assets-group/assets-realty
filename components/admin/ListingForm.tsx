@@ -2,7 +2,7 @@ import type { Listing } from "@/lib/types";
 import { saveListing } from "@/lib/actions/listings";
 import ImageUploader from "./ImageUploader";
 
-const TYPES = ["Villa", "Apartment", "Penthouse", "Branded Residence"];
+const TYPES = ["Villa", "Apartment", "Penthouse", "Branded Residence", "Land"];
 const STATUSES = ["For Sale", "For Rent", "Sold", "Coming Soon"];
 
 function Field({

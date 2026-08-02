@@ -1,6 +1,6 @@
 export type Locale = "en" | "ar";
 
-export type PropertyType = "Villa" | "Apartment" | "Penthouse" | "Branded Residence";
+export type PropertyType = "Villa" | "Apartment" | "Penthouse" | "Branded Residence" | "Land";
 export type ListingStatus = "For Sale" | "For Rent" | "Sold" | "Coming Soon";
 export type EmployeeRole = "admin" | "agent";
 
